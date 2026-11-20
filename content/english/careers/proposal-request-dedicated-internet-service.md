@@ -4,7 +4,7 @@ date: 2023-08-09
 description: "The African Institute for Mathematical Sciences (AIMS) Centre of Excellence in Ghana kindly requests your best firm offer for a dedicated symmetric internet connection to its new campus at Spintex in Accra, Ghana. The service is expected to"
 source: "https://aims.edu.gh/career/request-for-dedicated-internet-services/"
 build_status: "built"
-posting_type: "Call for application"
+posting_type: "Procurement"
 location: "Ghana"
 draft: false
 ---

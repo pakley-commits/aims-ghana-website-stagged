@@ -3,7 +3,11 @@
     "tags": [
       "a",
       "article",
+<<<<<<< HEAD
       "blockquote",
+=======
+      "aside",
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "body",
       "br",
       "button",
@@ -54,7 +58,10 @@
       "about-intro-banner",
       "about-intro-banner__image",
       "about-intro-banner__overlay",
+<<<<<<< HEAD
       "about-page",
+=======
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "accordion",
       "accordion-body",
       "accordion-button",
@@ -91,6 +98,22 @@
       "banner-copy__title",
       "banner-overlay",
       "banner-overlay--bottom",
+<<<<<<< HEAD
+=======
+      "basic-page",
+      "basic-page__body",
+      "basic-page__contact",
+      "basic-page__contact--main",
+      "basic-page__header",
+      "basic-page__layout",
+      "basic-page__layout--single",
+      "basic-page__main",
+      "basic-page__notice",
+      "basic-page__parent",
+      "basic-page__social",
+      "bg-dark",
+      "bg-light",
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "bg-transparent",
       "bg-white",
       "border",
@@ -100,6 +123,7 @@
       "brand-item",
       "btn",
       "btn-aims-primary",
+      "btn-dot",
       "btn-lg",
       "btn-newsletter",
       "btn-outline-primary",
@@ -154,14 +178,19 @@
       "excellence__image-column",
       "fa-arrow-right",
       "fa-bars",
-      "fa-calendar-alt",
       "fa-solid",
       "fa-xmark",
-      "far",
       "fas",
       "flex-column",
       "form-control",
       "form-control-lg",
+<<<<<<< HEAD
+=======
+      "fs-4",
+      "fs-5",
+      "fst-italic",
+      "fw-medium",
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "g-0",
       "g-3",
       "g-4",
@@ -178,11 +207,17 @@
       "governance-container",
       "governance-hero",
       "governance-hero__inner",
+<<<<<<< HEAD
+=======
+      "gx-4",
+      "gy-4",
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "gy-5",
       "h-100",
       "h2",
       "h3",
       "h4",
+<<<<<<< HEAD
       "home-alumni",
       "home-button",
       "home-button--gold",
@@ -245,6 +280,15 @@
       "home-research__shade",
       "home-section-heading",
       "home-text-link",
+=======
+      "home-intro__lead",
+      "home-intro__statement",
+      "home-news-card",
+      "home-news-card__excerpt",
+      "home-news-card__meta",
+      "home-news-card__more",
+      "home-news-card__title",
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "img",
       "img-dark",
       "img-fluid",
@@ -271,14 +315,25 @@
       "mb-4",
       "mb-5",
       "mb-lg-0",
+<<<<<<< HEAD
       "me-1",
+=======
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "mission-model",
       "mission-model__card",
       "mission-model__card--mission",
       "mission-model__card--vision",
+<<<<<<< HEAD
       "mobile-navigation-backdrop",
       "ms-3",
       "ms-auto",
+=======
+      "ms-3",
+      "ms-auto",
+      "ms-lg-4",
+      "mt-0",
+      "mt-2",
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "mt-4",
       "mt-5",
       "mx-auto",
@@ -316,6 +371,9 @@
       "news-list__pager",
       "news-list__sections",
       "newsletter-section",
+      "not-found",
+      "not-found__links",
+      "not-found__search",
       "object-fit-cover",
       "object-position-bottom",
       "order-0",
@@ -329,6 +387,7 @@
       "pb-3",
       "pb-5",
       "pe-0",
+      "pe-lg-5",
       "pe-lgy-5",
       "people-hub",
       "people-hub__card",
@@ -384,6 +443,11 @@
       "programs-list",
       "programs-list__grid",
       "programs-page",
+<<<<<<< HEAD
+=======
+      "ps-5",
+      "ps-lg-5",
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "pt-4",
       "px-0",
       "px-3",
@@ -391,7 +455,15 @@
       "px-md-5",
       "py-10",
       "py-5",
+<<<<<<< HEAD
       "research",
+=======
+      "py-md-5",
+      "quote-icon",
+      "quote-mark",
+      "research",
+      "rounded-3",
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "rounded-4",
       "row",
       "search-page",
@@ -434,17 +506,26 @@
       "skip-to-main-link",
       "small",
       "start-0",
+<<<<<<< HEAD
       "stub",
       "stub__desc",
       "stub__eyebrow",
       "stub__meta",
       "stub__title",
+=======
+      "start-50",
+      "success-story",
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "swiper",
       "swiper-slide",
       "swiper-wrapper",
       "text-black",
       "text-center",
+<<<<<<< HEAD
       "text-dark",
+=======
+      "text-light",
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "text-muted",
       "text-primary",
       "text-start",
@@ -452,8 +533,12 @@
       "top-0",
       "u-text-h2",
       "u-text-lead",
+<<<<<<< HEAD
       "u-text-sm",
       "u-text-xs",
+=======
+      "u-text-muted",
+>>>>>>> fa4d4d288bcb827b557de7cdaa7ff00ceaccab5b
       "utility-bar",
       "utility-bar--over-hero",
       "utility-bar__form",
@@ -481,6 +566,7 @@
       "application-form",
       "application-instructions",
       "applications-closed",
+      "basic-page-contact-title",
       "click-here-for-the-application-form",
       "click-here-to-download",
       "click-here-to-download-1",
@@ -537,6 +623,7 @@
       "navigation",
       "newsletter-email",
       "newsletter-name",
+      "not-found-search",
       "opportunities-for-visiting-researchers",
       "our-approach",
       "overview",

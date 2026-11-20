@@ -438,13 +438,10 @@
           {{ end }}
           {{ end }}
 
-          <!-- Author & Date -->
-          <div class="d-flex align-items-center mb-2 text-muted u-text-xs">
-            {{ with .Params.author }}
-            <i class="far fa-user-circle me-1"></i> {{ . }}
-            {{ end }}
-            <i class="far fa-calendar-alt ms-3 me-1"></i> {{ .Date.Format "Jan 2, 2006" }}
-          </div>
+          <p class="home-news-card__meta">
+            {{ with .Params.author }}<span>{{ . }}</span>{{ end }}
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+          </p>
 
           <!-- Blog Title -->
           <h3 class="mb-2">{{ .Title }}</h3>

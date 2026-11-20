@@ -109,11 +109,15 @@ rel = "manifest"
 # customize your color and font from here.
 [params.variables]
 color_primary = "#800000"
-color_secondary = "#376f92"
+# Was the theme's default steel blue (#376f92), which isn't a brand colour.
+color_secondary = "#5C0000"
 body_color = "#fff"
-text_color = "#777"
+# text_color and text_light were #777 and #959595, which fall below the WCAG AA
+# 4.5:1 contrast minimum for body text on white. These match the design
+# tokens $c-muted (#52525B, 7.7:1) and a lighter muted grey (#71717A, 4.8:1).
+text_color = "#52525B"
 text_dark = "#222"
-text_light = "#959595"
+text_light = "#71717A"
 border_color = "#ECECEC"
 dark_body_color = "#1E262C"
 dark_text_color = "#cbcbcb"

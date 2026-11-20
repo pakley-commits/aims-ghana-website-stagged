@@ -1,10 +1,10 @@
 ---
-title: "Proposal Request – HEALTH INSURANCE SERVICES FOR AIMS GHANA STAFF AND DEPENDANTS"
+title: "Proposal Request – Health Insurance Services for AIMS Ghana Staff and Dependants"
 date: 2023-01-13
 description: "Within the framework of our academic operations in Accra, Greater Accra Region of Ghana, African Institute for Mathematical Sciences, Ghana (AIMS, Ghana) a member of the AIMS-NEI network would like to request your Best and Final Offer (BAFO"
 source: "https://aims.edu.gh/career/proposal-request-health-insurance-services-for-aims-ghana-staff-and-dependants/"
 build_status: "built"
-posting_type: "Call for application"
+posting_type: "Procurement"
 location: "Ghana"
 draft: false
 ---

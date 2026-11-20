@@ -1,10 +1,10 @@
 ---
-title: "Proposal Request – OFFICE RELOCATION SERVICES"
+title: "Proposal Request – Office Relocation Services"
 date: 2023-07-24
 description: "The Centre is requesting proposals from office relocating and moving companies to provide office relocation project management and moving services related to the relocation of AIMS Ghana’s office and campus. This relocation is expected to t"
 source: "https://aims.edu.gh/career/proposal-request-office-relocation-services/"
 build_status: "built"
-posting_type: "Call for application"
+posting_type: "Procurement"
 location: "Ghana"
 draft: false
 ---

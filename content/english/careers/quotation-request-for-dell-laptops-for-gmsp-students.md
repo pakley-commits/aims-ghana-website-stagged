@@ -4,7 +4,7 @@ date: 2022-03-25
 description: "The African Institute for Mathematical Sciences in Ghana (AIMS Ghana) kindly requests your best firm offerDelivered at Place (DAP) to AIMS Ghana, Summerhill Estates, East Legon Hills, Along the Santoe – Ashiaman Road in the Greater Accra Re"
 source: "https://aims.edu.gh/career/quotation-request-for-dell-laptops-for-gmsp-students/"
 build_status: "built"
-posting_type: "Call for application"
+posting_type: "Procurement"
 location: "Ghana"
 draft: false
 ---

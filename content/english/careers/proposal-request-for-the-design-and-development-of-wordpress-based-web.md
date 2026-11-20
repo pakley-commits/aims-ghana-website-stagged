@@ -4,7 +4,7 @@ date: 2024-06-16
 description: "AIMS Ghana seeks to develop new websites for the AIMS-Network of Centres of Excellence that reflect the evolving digital needs of our academic and research community. The primary objective is to create modern, user-friendly, and easily mana"
 source: "https://aims.edu.gh/career/proposal-request-for-the-design-and-development-of-wordpress-based-websites-for-the-african-institute-for-mathematical-sciences/"
 build_status: "built"
-posting_type: "Call for application"
+posting_type: "Procurement"
 location: "Ghana"
 draft: false
 ---

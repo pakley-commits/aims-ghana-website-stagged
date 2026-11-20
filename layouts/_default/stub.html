@@ -1,44 +1,86 @@
 {{ define "main" }}
 {{/*
-  Placeholder for a page whose URL and navigation are live but whose design
-  has not been built yet. Deliberately plain: a stub must never be mistaken
-  for a finished page. Replaced phase by phase as each archetype lands.
+  Basic content page: title, intro, body, and a "Get in touch" panel. Used by
+  pages that have no bespoke design (Contact, Donate, FAQs, Policies, ...).
+
+  - With body content, the content is shown as readable prose.
+  - Without body content, a short "on its way" notice is shown instead, so a
+    visitor is never shown build notes.
+  - `contact_panel: "main"` in front matter (the Contact page) makes the
+    contact details the page's main content instead of a side panel.
+
+  Contact details come from site.Params.footer_contact, the same source as the
+  footer, so the two cannot disagree.
 */}}
-<section class="stub">
+{{ $contactMain := eq .Params.contact_panel "main" }}
+{{ $parent := "" }}
+{{ with .CurrentSection }}{{ if and (ne .RelPermalink $.RelPermalink) (not .IsHome) }}{{ $parent = . }}{{ end }}{{ end }}
+
+<section class="basic-page">
   <div class="container">
-    <p class="stub__eyebrow">
-      {{ with .CurrentSection }}{{ if ne .Title $.Title }}{{ .Title }}{{ end }}{{ end }}
-    </p>
-    <h1 class="stub__title">{{ .Title }}</h1>
-    {{ with .Description }}<p class="stub__desc">{{ . }}</p>{{ end }}
-
-    <dl class="stub__meta">
-      {{ if eq .Params.build_status "undesigned" }}
-        <div>
-          <dt>Status</dt>
-          <dd>No design yet &mdash; this page has no Figma frame.</dd>
-        </div>
-      {{ else }}
-        <div>
-          <dt>Status</dt>
-          <dd>Designed, not yet built</dd>
-        </div>
-        <div>
-          <dt>Figma frame</dt>
-          <dd>{{ .Params.figma_frame }}</dd>
-        </div>
-        <div>
-          <dt>Scheduled</dt>
-          <dd>Phase {{ .Params.build_phase }}</dd>
-        </div>
+    <header class="section-hub__header basic-page__header">
+      {{ with $parent }}
+      <p class="basic-page__parent"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
       {{ end }}
-      <div>
-        <dt>URL</dt>
-        <dd>{{ .RelPermalink }}</dd>
-      </div>
-    </dl>
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p>{{ . }}</p>{{ end }}
+    </header>
 
-    {{ with .Content }}<div class="stub__body">{{ . }}</div>{{ end }}
+    <div class="basic-page__layout{{ if $contactMain }} basic-page__layout--single{{ end }}">
+      {{ if not $contactMain }}
+      <div class="basic-page__main">
+        {{ if .Content }}
+        <div class="content basic-page__body">{{ .Content }}</div>
+        {{ else }}
+        <div class="basic-page__notice">
+          <h2>This page is on its way</h2>
+          <p>We are still preparing the {{ .Title }} page. If you need anything in the meantime, get in touch and our team will point you in the right direction.</p>
+          {{ with $parent }}
+          <p><a href="{{ .RelPermalink }}">Back to {{ .Title }}</a></p>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      {{ end }}
+
+      {{ with site.Params.footer_contact }}
+      <aside class="basic-page__contact{{ if $contactMain }} basic-page__contact--main{{ end }}" aria-labelledby="basic-page-contact-title">
+        <h2 id="basic-page-contact-title">{{ if $contactMain }}How to reach us{{ else }}Get in touch{{ end }}</h2>
+        <dl>
+          {{ with .email }}
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:{{ . }}">{{ . }}</a></dd>
+          </div>
+          {{ end }}
+          {{ with .telephone }}
+          <div>
+            <dt>Telephone</dt>
+            <dd><a href="tel:{{ replaceRE `[^0-9+]` `` . }}">{{ . }}</a></dd>
+          </div>
+          {{ end }}
+          {{ with .location }}
+          <div>
+            <dt>Address</dt>
+            <dd>
+              {{ . }}<br>
+              <a href="https://www.google.com/maps/search/?api=1&amp;query={{ . | urlquery }}">Open in Google Maps</a>
+            </dd>
+          </div>
+          {{ end }}
+        </dl>
+
+        {{ $socials := where site.Params.social "link" "!=" "" }}
+        {{ with $socials }}
+        <ul class="basic-page__social" aria-label="AIMS Ghana on social media">
+          {{ range . }}
+          <li><a href="{{ .link | safeURL }}">{{ .title }}</a></li>
+          {{ end }}
+        </ul>
+        {{ end }}
+      </aside>
+      {{ end }}
+    </div>
   </div>
 </section>
 {{ end }}
