@@ -3801,6 +3801,61 @@ body .cookie-box.cookie-box-hide { display: none; }
   .careers-list__grid { grid-template-columns: 1fr; }
 }
 
+// Careers intro — alternating text/image blocks.
+.careers-intro {
+  padding: $section-y 0;
+}
+
+.careers-intro__block {
+  margin-bottom: $section-y;
+}
+
+.careers-intro__block:last-child {
+  margin-bottom: 0;
+}
+
+.careers-intro__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $s-12;
+}
+
+.careers-intro__text,
+.careers-intro__image {
+  flex: 1 1 300px;
+}
+
+.careers-intro__title {
+  margin: 0 0 $s-6 0;
+  font-size: $fs-h3;
+  line-height: $lh-snug;
+  color: $c-ink;
+}
+
+.careers-intro__body {
+  margin: 0;
+  color: $c-muted;
+  font-size: $fs-body;
+  line-height: $lh-normal;
+}
+
+.careers-intro__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: $r-md;
+}
+
+@include desktop {
+  .careers-intro__row { gap: $s-16; }
+  .careers-intro__title { font-size: $fs-h2; }
+}
+
+@include tablet {
+  .careers-intro__title { font-size: $fs-h3; }
+}
+
 @include tablet {
   .news-list { padding: $section-y 0; }
   .news-list__grid { grid-template-columns: 1fr; gap: $s-8; }

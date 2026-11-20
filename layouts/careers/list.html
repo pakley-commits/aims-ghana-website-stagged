@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{/* Careers listing — Figma "Careers list": 4-up grid of Career Cards (meta, title, rule, clamped excerpt). */}}
+{{/* Careers listing — Figma "Careers list": 4-up grid of Career Cards (meta, title, rule, clamped excerpt), then intro blocks with alternating text/image. */}}
 {{ $pages := .RegularPagesRecursive }}
 {{ if .IsSection }}{{ $pages = .RegularPages }}{{ end }}
 {{ $paginator := .Paginate ($pages.ByDate.Reverse) 12 }}
@@ -41,6 +41,44 @@
     <p class="news-list__empty">
       No openings are listed at the moment.
     </p>
+    {{ end }}
+
+    {{ with .Params.intro_blocks }}
+    <div class="careers-intro">
+      {{ range . }}
+      <div class="careers-intro__block {{ .direction }}">
+        <div class="container">
+          <div class="careers-intro__row">
+            {{ if eq .direction "text-left" }}
+            <div class="careers-intro__text">
+              <h2 class="careers-intro__title">{{ .title }}</h2>
+              {{ with .content }}<p class="careers-intro__body">{{ . | markdownify }}</p>{{ end }}
+            </div>
+            <div class="careers-intro__image">
+              {{ $img := resources.Get .image }}
+              {{ with $img }}
+              {{ $i := .Fill "800x600 Center" }}
+              <img src="{{ $i.RelPermalink }}" alt="" width="800" height="600" class="careers-intro__img">
+              {{ end }}
+            </div>
+            {{ else }}
+            <div class="careers-intro__image">
+              {{ $img := resources.Get .image }}
+              {{ with $img }}
+              {{ $i := .Fill "800x600 Center" }}
+              <img src="{{ $i.RelPermalink }}" alt="" width="800" height="600" class="careers-intro__img">
+              {{ end }}
+            </div>
+            <div class="careers-intro__text">
+              <h2 class="careers-intro__title">{{ .title }}</h2>
+              {{ with .content }}<p class="careers-intro__body">{{ . | markdownify }}</p>{{ end }}
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
     {{ end }}
   </div>
 </section>
