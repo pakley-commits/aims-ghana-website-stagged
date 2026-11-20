@@ -4542,6 +4542,7 @@ $heading-scale: (
     transform: none;
     visibility: visible;
     pointer-events: auto;
+    text-align: left !important;
   }
 
   .navigation .primary-navigation .nav-item.is-open > .dropdown-menu {
@@ -4556,10 +4557,12 @@ $heading-scale: (
 
   .navigation .primary-navigation .dropdown-menu .dropdown-item {
     display: block;
+    width: 100%;
     padding: 11px 16px !important;
     color: $c-muted !important;
     font-size: $fs-sm;
     line-height: 1.4;
+    text-align: left !important;
     white-space: normal;
   }
 
