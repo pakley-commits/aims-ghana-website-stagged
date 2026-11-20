@@ -1,16 +1,67 @@
 @import 'tokens';
 
 // ---------------------------------------------------------------------------
+// Page width
+// The one content width for the whole site: identical to Bootstrap's
+// .container, which the header and navigation use. Section wrappers that
+// can't take the .container class include this instead, so every band of the
+// page lines up with the logo and menu at every screen size.
+// ---------------------------------------------------------------------------
+@mixin page-width {
+  @include make-container();
+
+  @each $breakpoint, $max-width in $container-max-widths {
+    @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+      max-width: $max-width;
+    }
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Base
 // The theme sets body to $font-primary (Space Grotesk). Body copy belongs on
 // the body face; headings keep Space Grotesk from the theme's _typography.scss.
 // ---------------------------------------------------------------------------
-html {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+// ---------------------------------------------------------------------------
+// Keyboard focus
+// One visible ring for every interactive element, shown only for keyboard
+// navigation (:focus-visible), so mouse clicks don't flash it. The theme sets
+// `outline: 0` on a, button, select and .btn on :focus, hence !important.
+// Maroon on light backgrounds; white where the section is dark (white text,
+// maroon or photo bands), so the ring always stands out from what's behind it.
+// ---------------------------------------------------------------------------
+a,
+button,
+input,
+select,
+textarea,
+summary,
+[tabindex]:not([tabindex="-1"]) {
+  &:focus-visible {
+    outline: 3px solid $c-maroon !important;
+    outline-offset: 2px;
+  }
+}
 
-  &::-webkit-scrollbar {
-    display: none;
+.text-white,
+.utility-bar,
+.banner,
+.navigation-transparent,
+.governance-hero,
+.admin-staff-hero,
+.centre-president-title,
+.about-intro-banner,
+.site-footer--dark {
+  a,
+  button,
+  input,
+  select,
+  textarea,
+  summary,
+  [tabindex]:not([tabindex="-1"]) {
+    &:focus-visible {
+      outline-color: $c-white !important;
+    }
   }
 }
 
@@ -18,6 +69,43 @@ body {
   font-family: $font-body;
   font-size: $fs-body;
   line-height: $lh-relaxed;
+}
+
+// Quotations in article content. The theme drew a maroon bar down the left
+// edge; this uses a light tint, a full hairline border and a large quote mark.
+.content blockquote,
+blockquote {
+  position: relative;
+  margin: $s-8 0;
+  padding: $s-6 $s-8 $s-6 $s-16;
+  border: 1px solid $c-line;
+  border-radius: $r-md;
+  background: mix($c-maroon, $c-white, 4%);
+  color: $c-ink;
+  font-style: normal;
+
+  &::before {
+    position: absolute;
+    top: $s-2;
+    left: $s-5;
+    color: $c-maroon;
+    font-family: $font-display;
+    font-size: 56px;
+    line-height: 1;
+    content: "\201C";
+  }
+
+  p:last-child { margin-bottom: 0; }
+}
+
+// Large opening quote mark (homepage success story).
+.quote-mark {
+  display: block;
+  height: 0.6em;
+  color: $c-maroon;
+  font-family: $font-display;
+  font-size: 96px;
+  line-height: 1;
 }
 
 .about-intro-banner {
@@ -53,12 +141,25 @@ body {
     z-index: 1;
   }
 
+  // Short gold underline, the same heading mark used across the site (was a
+  // gold bar down the left edge).
   h1 {
+    position: relative;
     margin: 0;
-    padding-left: 22px;
-    border-left: 2px solid $c-gold;
+    padding-bottom: 14px;
     font-size: clamp(26px, 2.8vw, 32px);
     line-height: 1.15;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 52px;
+      height: 3px;
+      border-radius: 2px;
+      background-color: $c-gold;
+      content: "";
+    }
   }
 
   p {
@@ -85,10 +186,6 @@ body {
   @include tablet {
     min-height: 0;
     padding: 32px 0;
-
-    h1 {
-      padding-left: 18px;
-    }
   }
 }
 
@@ -217,6 +314,8 @@ $heading-scale: (
   // figures in Space Grotesk Medium at the h1 step.
   font-weight: $fw-medium;
   font-size: $fs-h1;
+  // The figure and its caption read as one unit.
+  margin-bottom: $s-2;
 
   @include desktop {
     font-size: 44px;
@@ -326,9 +425,7 @@ $heading-scale: (
 
 // Centre President page
 .centre-president-page-container {
-  width: calc(100% - 120px);
-  max-width: 1220px;
-  margin: 0 auto;
+  @include page-width;
 }
 
 .centre-president-title {
@@ -468,10 +565,6 @@ $heading-scale: (
 }
 
 @include mobile {
-  .centre-president-page-container {
-    width: calc(100% - 32px);
-  }
-
   .centre-president-title {
     min-height: 160px;
   }
@@ -507,9 +600,7 @@ $heading-scale: (
 
 // Governance page
 .governance-container {
-  width: calc(100% - 48px);
-  max-width: 1220px;
-  margin: 0 auto;
+  @include page-width;
 }
 
 .governance-hero {
@@ -517,12 +608,7 @@ $heading-scale: (
   display: flex;
   align-items: center;
   padding: clamp(56px, 8vw, 96px) 0;
-  background: linear-gradient(
-    115deg,
-    rgba(111, 16, 16, 0.97) 0%,
-    rgba(134, 28, 28, 0.97) 72%,
-    rgba(146, 38, 38, 0.97) 100%
-  );
+  background: $c-maroon;
 }
 
 .governance-hero__inner {
@@ -575,9 +661,7 @@ $heading-scale: (
 }
 
 .governance-board__container {
-  width: calc(100% - 48px);
-  max-width: 1290px;
-  margin: 0 auto;
+  @include page-width;
 }
 
 .governance-board__header {
@@ -612,7 +696,6 @@ $heading-scale: (
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: $s-5;
-  max-width: 1270px;
   margin: 50px auto 0;
 }
 
@@ -638,6 +721,9 @@ $heading-scale: (
   object-position: center center;
 }
 
+// Name and role are always shown over a dark scrim at the foot of the photo.
+// They used to appear only on mouse hover, so on desktop the board read as
+// seven unnamed portraits to keyboard users, skimmers and print.
 .governance-board-card__overlay {
   position: absolute;
   left: 0;
@@ -645,10 +731,8 @@ $heading-scale: (
   bottom: 0;
   top: 40.53%;
   border-radius: 0 0 $r-lg $r-lg;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
-  opacity: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.55) 45%, rgba(0, 0, 0, 0) 100%);
   pointer-events: none;
-  transition: opacity 220ms ease;
 }
 
 .governance-board-card__content {
@@ -658,64 +742,6 @@ $heading-scale: (
   bottom: 25px;
   z-index: 1;
   text-align: center;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(12px);
-  transition:
-    opacity 220ms ease,
-    transform 220ms ease,
-    visibility 220ms ease;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .governance-board-card:hover {
-    box-shadow: inset 0 0 0 1px $c-maroon;
-  }
-
-  .governance-board-card:hover .governance-board-card__overlay {
-    opacity: 1;
-  }
-
-  .governance-board-card:hover .governance-board-card__content {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-}
-
-.governance-board-card:focus .governance-board-card__overlay {
-  opacity: 1;
-}
-
-.governance-board-card:focus .governance-board-card__content {
-  opacity: 1;
-  visibility: visible;
-  transform: none;
-}
-
-.governance-board-card:focus-visible {
-  outline: 3px solid $c-gold;
-  outline-offset: 3px;
-}
-
-@include tablet {
-  .governance-board-card__overlay {
-    opacity: 1;
-  }
-
-  .governance-board-card__content {
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .governance-board-card,
-  .governance-board-card__overlay,
-  .governance-board-card__content {
-    transition: none;
-  }
 }
 
 // Person-card names sit in a fixed-height block above the role text, so a
@@ -797,11 +823,6 @@ $heading-scale: (
 }
 
 @include mobile {
-  .governance-container,
-  .governance-board__container {
-    width: calc(100% - 32px);
-  }
-
   .governance-hero {
     min-height: 0;
     padding: 48px 0 52px;
@@ -844,9 +865,7 @@ $heading-scale: (
 
 // Administrative Staff page
 .admin-staff-container {
-  width: calc(100% - 96px);
-  max-width: 1220px;
-  margin: 0 auto;
+  @include page-width;
 }
 
 .admin-staff-hero {
@@ -889,11 +908,6 @@ $heading-scale: (
   overflow: hidden;
   padding: $section-y-lg 0;
   background: $c-white;
-}
-
-.admin-staff-section .admin-staff-container {
-  max-width: 1280px;
-  padding: 0 $s-8;
 }
 
 .admin-staff-grid {
@@ -984,10 +998,6 @@ $heading-scale: (
 }
 
 @include desktop {
-  .admin-staff-container {
-    width: calc(100% - 48px);
-  }
-
   .admin-staff-hero {
     min-height: auto;
     padding: $section-y 0;
@@ -1008,14 +1018,6 @@ $heading-scale: (
 }
 
 @include mobile {
-  .admin-staff-container {
-    width: calc(100% - 32px);
-  }
-
-  .admin-staff-section .admin-staff-container {
-    padding: 0;
-  }
-
   .admin-staff-hero {
     padding: $section-y-sm 0;
   }
@@ -1314,10 +1316,10 @@ $heading-scale: (
     align-items: flex-start;
     gap: 14px;
     padding: 22px;
-    border: 1px solid $c-line;
-    border-left: 3px solid $c-gold;
+    // Full border with a faint gold tint (was a 3px gold left edge).
+    border: 1px solid rgba($c-gold, 0.35);
     border-radius: $r-md;
-    background-color: $c-white;
+    background-color: mix($c-gold, $c-white, 6%);
     box-shadow: $shadow-1;
     transition:
       transform 180ms ease,
@@ -1406,19 +1408,10 @@ $heading-scale: (
       box-shadow 180ms ease,
       border-color 180ms ease;
 
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 52px;
-      height: 4px;
-      background: var(--mission-card-accent);
-      content: "";
-      transition: width 180ms ease;
-    }
-
+    // Accent carried by the heading colour (was a 4px bar along the top edge
+    // that grew across the card on hover).
     h2 {
-      color: $c-ink-strong;
+      color: var(--mission-card-accent);
       font-size: clamp(24px, 2.5vw, 30px);
       line-height: $lh-tight;
     }
@@ -1430,17 +1423,14 @@ $heading-scale: (
     }
 
     &--vision {
-      --mission-card-accent: #{$c-gold};
+      // Darkened gold: plain gold on white is below 3:1 contrast.
+      --mission-card-accent: #{darken($c-gold, 18%)};
     }
 
     &:hover {
       transform: translateY(-5px);
       border-color: rgba(128, 0, 0, 0.25);
       box-shadow: $shadow-2;
-
-      &::before {
-        width: 100%;
-      }
     }
 
     &:active {
@@ -1460,8 +1450,7 @@ $heading-scale: (
   }
 
   @media (prefers-reduced-motion: reduce) {
-    &__card,
-    &__card::before {
+    &__card {
       transition: none;
     }
   }
@@ -1504,22 +1493,16 @@ $heading-scale: (
   }
 
 // Lecturers section
+// Plain white band. It used to end in a 153px black strip that the white map
+// image overlapped, which left visible white edges around the map.
 .lecturers-section {
-  background: linear-gradient(
-    180deg,
-    $c-white 0,
-    $c-white calc(100% - 153px),
-    $c-black calc(100% - 153px),
-    $c-black 100%
-  );
+  background: $c-white;
   overflow: hidden;
-  padding: $section-y-lg 0 89px;
+  padding: $section-y-lg 0;
 }
 
 .lecturers-container {
-  width: calc(100% - 48px);
-  max-width: 1280px;
-  margin: 0 auto;
+  @include page-width;
 }
 
 .lecturers-header {
@@ -1573,24 +1556,28 @@ $heading-scale: (
   margin-top: 31px;
 }
 
+// Primary button (maroon pill), 44px tall for a comfortable tap target (was a
+// 31px white pill with 13px text on the black strip).
 .lecturers-button {
   display: inline-flex;
-  min-height: 31px;
+  min-height: 44px;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 5px 18px;
+  padding: $s-2 $s-6;
   border-radius: $r-pill;
-  background: $c-white;
-  color: $c-maroon;
+  background: $c-maroon;
+  color: $c-white;
   font-family: $font-body;
-  font-size: $fs-xs;
+  font-size: $fs-sm;
   line-height: 22px;
-  font-weight: $fw-bold;
+  font-weight: $fw-semibold;
+  text-decoration: none;
 }
 
 .lecturers-button:hover {
-  color: #5a0000;
+  background: $c-maroon-deep;
+  color: $c-white;
 }
 
 .lecturers-button i {
@@ -1600,18 +1587,7 @@ $heading-scale: (
 
 @include tablet {
   .lecturers-section {
-    background: linear-gradient(
-      180deg,
-      $c-white 0,
-      $c-white calc(100% - 124px),
-      $c-black calc(100% - 124px),
-      $c-black 100%
-    );
-    padding: $section-y 0 $s-16;
-  }
-
-  .lecturers-container {
-    width: calc(100% - 32px);
+    padding: $section-y 0;
   }
 
   .lecturers-header h2 {
@@ -1644,9 +1620,7 @@ $heading-scale: (
 }
 
 .site-footer__container {
-  width: calc(100% - 48px);
-  max-width: 1220px;
-  margin: 0 auto;
+  @include page-width;
 }
 
 .site-footer__top {
@@ -1678,7 +1652,9 @@ $heading-scale: (
   justify-content: center;
   gap: 10px;
   margin-top: 10px;
-  padding: 5px 13px 5px 5px;
+  // Gold dot after the label, as on the header's Apply button.
+  flex-direction: row-reverse;
+  padding: 5px 5px 5px 16px;
   border: 0;
   border-radius: $r-pill;
   background: $c-maroon;
@@ -1854,10 +1830,6 @@ $heading-scale: (
     padding-top: 48px;
   }
 
-  .site-footer__container {
-    width: calc(100% - 32px);
-  }
-
   .site-footer__top {
     flex-direction: column;
   }
@@ -1895,9 +1867,7 @@ $heading-scale: (
 }
 
 .programs-container {
-  width: calc(100% - 48px);
-  max-width: 1300px;
-  margin-inline: auto;
+  @include page-width;
 }
 
 .programs-hero {
@@ -2124,10 +2094,6 @@ $heading-scale: (
 }
 
 @include tablet {
-  .programs-container {
-    width: calc(100% - 32px);
-  }
-
   .programs-hero {
     padding: $section-y 0;
 
@@ -2249,12 +2215,6 @@ $heading-scale: (
   --programs-border: rgba(73, 81, 91, 0.3);
   background: $c-white;
   color: var(--programs-copy);
-}
-
-.programs-page .programs-container {
-  width: calc(100% - 220px);
-  max-width: 1220px;
-  margin: 0 auto;
 }
 
 .programs-hero {
@@ -2424,11 +2384,6 @@ $heading-scale: (
   background: var(--programs-soft);
 }
 
-.programs-learning .programs-container {
-  width: calc(100% - 140px);
-  max-width: 1300px;
-}
-
 .programs-learning__grid {
   display: grid;
   grid-template-columns: minmax(0, 680px) minmax(320px, 500px);
@@ -2520,11 +2475,6 @@ $heading-scale: (
   background: $c-white;
 }
 
-.programs-explore .programs-container {
-  width: calc(100% - 208px);
-  max-width: 1232px;
-}
-
 .programs-explore h2 {
   margin: 0 0 24px;
   color: var(--programs-copy);
@@ -2566,12 +2516,6 @@ $heading-scale: (
 }
 
 @include desktop-lg {
-  .programs-page .programs-container,
-  .programs-learning .programs-container,
-  .programs-explore .programs-container {
-    width: calc(100% - 64px);
-  }
-
   .programs-hero__grid {
     grid-template-columns: 1fr;
     gap: $s-10;
@@ -2603,12 +2547,6 @@ $heading-scale: (
 }
 
 @include tablet {
-  .programs-page .programs-container,
-  .programs-learning .programs-container,
-  .programs-explore .programs-container {
-    width: calc(100% - 32px);
-  }
-
   .programs-hero {
     min-height: auto;
     padding: $section-y 0;
@@ -2773,10 +2711,14 @@ $heading-scale: (
   font-size: $fs-sm;
   font-weight: $fw-bold;
   padding: $s-2 $s-10 $s-2 $s-6;
+  min-height: 44px;
 
+  // !important: the theme's .btn:hover forces a maroon background with
+  // !important, which would hide this button's maroon label.
   &:hover,
   &:focus {
-    background: $c-surface-alt;
+    border-color: $c-surface-alt !important;
+    background: $c-surface-alt !important;
     color: $c-maroon;
   }
 }
@@ -2784,8 +2726,17 @@ $heading-scale: (
 // Solid primary action. The design uses a 9px radius here; $r-sm (8px) is the
 // nearest token and is used instead of reintroducing a magic number.
 .btn-aims-primary {
-  border-radius: $r-sm;
   white-space: nowrap;
+}
+
+// Gold dot on the header Apply button (was an inline style).
+.btn-dot {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: $c-gold;
 }
 
 /* Arrow icon styling */
@@ -2804,13 +2755,16 @@ $heading-scale: (
 
 /* Newsletter submit, per Figma Button/Primary/With Icon: gold fill, dark ink */
 .btn-newsletter {
+  border-color: $c-gold;
   background-color: $c-gold;
-  border-radius: $r-sm;
   color: $c-night-soft;
   white-space: nowrap;
 
-  &:hover {
-    background-color: #e08609;
+  &:hover,
+  &:focus {
+    border-color: #e08609 !important;
+    background-color: #e08609 !important;
+    color: $c-night-soft;
   }
 }
 
@@ -2829,6 +2783,64 @@ $heading-scale: (
   width: 100%;
   height: 200px;
   object-fit: cover;
+}
+
+// Homepage intro: statement on the left, paragraph on the right, both
+// starting at the same top line.
+.home-intro__statement {
+  margin-top: 0;
+  max-width: 22ch;
+  line-height: $lh-snug;
+}
+
+.home-intro__lead p {
+  max-width: 52ch;
+  font-size: $fs-lg;
+  line-height: $lh-relaxed;
+}
+
+// Homepage "Latest News" cards.
+.home-news-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $s-1 $s-3;
+    margin: 0 0 $s-2;
+    color: $c-muted;
+    font-size: $fs-xs;
+  }
+
+  &__title {
+    margin: 0 0 $s-2;
+    font-size: $fs-h6;
+    line-height: $lh-snug;
+  }
+
+  &__excerpt {
+    display: -webkit-box;
+    margin: 0 0 $s-4;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    color: $c-muted;
+    font-size: $fs-sm;
+    line-height: $lh-normal;
+  }
+
+  &__more {
+    align-self: flex-start;
+    margin-top: auto;
+    padding: $s-2 0;
+    color: $c-maroon;
+    font-weight: $fw-medium;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+  }
 }
 
 /* Skip to main content link - visible on focus, hidden otherwise */
@@ -2925,13 +2937,16 @@ $heading-scale: (
     font-size: $fs-h3;
   }
 
+  // Kept clearly larger than the 24px intro statement that follows, so the
+  // hero still reads as the page's headline on phones (was 24px here too).
   @include tablet {
     max-width: 100%;
-    font-size: $fs-h4;
+    font-size: $fs-h3;
   }
 
   @include mobile {
-    font-size: $fs-h5;
+    font-size: 30px;
+    line-height: $lh-tight;
   }
 }
 
@@ -3001,9 +3016,14 @@ $heading-scale: (
 .partners-section {
   background-color: $c-white;
 
+  // Every logo in the same box (same height, capped width) so wide wordmarks
+  // like Facebook don't outweigh compact crests like KNUST.
   .brand-item img {
-    max-height: 56px;
-    width: auto;
+    height: 48px;
+    max-height: 48px;
+    width: 100%;
+    max-width: 140px;
+    margin-inline: auto;
     object-fit: contain;
   }
 }
@@ -3037,6 +3057,8 @@ $heading-scale: (
   margin: $s-5 0 0;
   display: grid;
   gap: $s-2;
+  font-size: $fs-sm;
+  line-height: 22px;
 
   // Label and value flow as one paragraph, as in the design ("Location: Kasa
   // Global Villa, 1 Shoppers Street, Manet, Spintex, Accra, Ghana"). Flex items
@@ -3356,12 +3378,28 @@ $heading-scale: (
   padding: $section-y-lg 0;
 }
 
-.news-list__header {
+// ---------------------------------------------------------------------------
+// Plain page header — one rule for every white-background page title block:
+// section hubs, People, basic pages, News / Events / Careers lists and Search.
+// (Flagship pages such as Governance use the maroon band instead.)
+// ---------------------------------------------------------------------------
+.news-list__header,
+.people-hub__header,
+.section-hub__header,
+.search-page__header {
   max-width: 760px;
-  margin-bottom: $s-8;
+  margin-bottom: $s-10;
 
   h1 { margin-bottom: $s-4; }
+
+  > p {
+    margin: 0;
+    color: $c-muted;
+    font-size: $fs-lg;
+  }
 }
+
+.search-page__header h1 { margin-bottom: $s-6; }
 
 .news-list__intro {
   margin: 0;
@@ -3434,9 +3472,69 @@ $heading-scale: (
 }
 
 .news-card__excerpt {
+  display: -webkit-box;
   margin: 0;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   color: $c-muted;
   overflow-wrap: anywhere;
+}
+
+// Cookie notice. The module ships an inline <style> after this sheet, hence
+// the body-prefixed selectors. On phones it becomes a slim full-width bar at
+// the very bottom instead of a large card over the content.
+body .cookie-box {
+  font-size: $fs-sm;
+  line-height: $lh-normal;
+
+  p { margin-bottom: $s-3; }
+}
+
+@include tablet {
+  body .cookie-box {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: $s-3;
+    width: 100%;
+    max-width: 100%;
+    padding: $s-3 $s-4;
+    border-top: 1px solid $c-line;
+    border-radius: 0;
+
+    p { margin: 0; flex: 1 1 auto; }
+
+    .cookie-box-button { flex: 0 0 auto; margin: 0; }
+  }
+}
+
+// Keep "accepted" winning over the flex layout above.
+body .cookie-box.cookie-box-hide { display: none; }
+
+// 404 page: search box, then the quick links.
+.not-found__search { margin-bottom: $s-10; }
+
+// Event facts (date, venue) under an event title, when set in front matter.
+.event-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $s-3 $s-8;
+  margin: 0 0 $s-4;
+
+  dt {
+    color: $c-muted;
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+  }
+
+  dd {
+    margin: 0;
+    color: $c-ink;
+    font-weight: $fw-medium;
+  }
 }
 
 .news-list__pager {
@@ -3459,7 +3557,13 @@ $heading-scale: (
   padding: $section-y-lg 0 $s-8;
   background: $c-surface;
 
-  h1 { max-width: 900px; margin-bottom: $s-4; }
+  // Long story titles were 56px and ran to four lines; capped at 48px.
+  h1 {
+    max-width: 32ch;
+    margin-bottom: $s-4;
+    font-size: unquote("clamp(2rem, 1.4rem + 2vw, 3rem)");
+    line-height: $lh-tight;
+  }
 }
 
 .news-article__meta {
@@ -3486,11 +3590,15 @@ $heading-scale: (
   border-radius: $r-lg;
 }
 
+// Story text at 18px in a column of about 68 characters (was 16px across
+// 760px, roughly 90 characters a line). Darker than the muted grey so long
+// reads are comfortable.
 .news-article__body {
-  max-width: 760px;
+  max-width: 64ch;
   padding: $s-10 0 $section-y-lg;
+  font-size: 18px;
 
-  p, li { color: $c-muted; line-height: $lh-relaxed; }
+  p, li { color: $c-ink; line-height: $lh-relaxed; }
   h2 { margin-top: $s-12; }
   h3 { margin-top: $s-10; }
   a { color: $c-maroon; }
@@ -3529,11 +3637,17 @@ $heading-scale: (
 
 .career-card__lead {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: $s-2;
+  gap: $s-1 $s-2;
+
+  // Date and tag never break internally; the tag drops to its own line when
+  // the card is too narrow for both.
+  time { white-space: nowrap; }
 }
 
 .career-card__tag {
+  white-space: nowrap;
   padding: 1px $s-2;
   border-radius: $r-pill;
   background: color-mix(in srgb, #{$c-maroon} 10%, transparent);
@@ -3550,7 +3664,7 @@ $heading-scale: (
   -webkit-line-clamp: 3;
   font-size: $fs-h5;
   line-height: 30px;
-  letter-spacing: -1px;
+  letter-spacing: 0;
 
   a {
     color: $c-ink;
@@ -3572,10 +3686,12 @@ $heading-scale: (
   margin: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
+  // Body size, so the job title stays the first thing read (was 20px, larger
+  // than the title on phones). Four lines is enough to tell postings apart.
+  -webkit-line-clamp: 4;
   color: $c-muted;
-  font-size: $fs-h6;
-  line-height: 1.5;
+  font-size: $fs-body;
+  line-height: $lh-normal;
   overflow-wrap: anywhere;
 }
 
@@ -3608,7 +3724,7 @@ $heading-scale: (
 .utility-bar {
   position: relative;
   z-index: 1001;
-  background: $c-night;
+  background: #800000;
   color: $c-white;
   font-family: $font-body;
   font-size: $fs-sm;
@@ -3713,7 +3829,7 @@ $heading-scale: (
   top: 0;
   left: 0;
   width: 100%;
-  background: rgba(9, 9, 20, 0.55);
+  background: #800000;
   backdrop-filter: blur(6px);
 }
 
@@ -3744,14 +3860,6 @@ $heading-scale: (
 // ===========================================================================
 
 .people-hub { padding: $section-y-lg 0; }
-
-.people-hub__header {
-  max-width: 720px;
-  margin-bottom: $s-12;
-
-  h1 { margin-bottom: $s-4; }
-  p { margin: 0; color: $c-muted; font-size: $fs-lg; }
-}
 
 .people-hub__group {
   margin-bottom: $s-12;
@@ -3826,14 +3934,6 @@ $heading-scale: (
 
 .section-hub { padding: $section-y-lg 0; }
 
-.section-hub__header {
-  max-width: 720px;
-  margin-bottom: $s-12;
-
-  h1 { margin-bottom: $s-4; }
-  p { margin: 0; color: $c-muted; font-size: $fs-lg; }
-}
-
 .section-hub__group {
   margin-bottom: $s-12;
 
@@ -3894,17 +3994,139 @@ $heading-scale: (
 }
 
 // ===========================================================================
+// Basic content pages — Contact, Donate, FAQs, Policies and other pages
+// without a bespoke design. Same header as the section hubs; a contact panel
+// sits beside the content on desktop and below it on smaller screens.
+// ===========================================================================
+
+.basic-page { padding: $section-y-lg 0; }
+
+.basic-page__header > .basic-page__parent {
+  margin: 0 0 $s-3;
+  font-size: $fs-sm;
+  font-weight: $fw-medium;
+
+  a {
+    color: $c-maroon;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+  }
+}
+
+.basic-page__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+  align-items: start;
+  gap: $s-12;
+
+  &--single {
+    grid-template-columns: minmax(0, 760px);
+  }
+}
+
+.basic-page__body {
+  max-width: 70ch;
+  color: $c-ink;
+
+  a {
+    color: $c-maroon;
+    font-weight: $fw-medium;
+  }
+}
+
+.basic-page__notice,
+.basic-page__contact {
+  padding: $s-8;
+  border: 1px solid $c-line;
+  border-radius: $r-lg;
+  background: $c-surface;
+
+  h2 {
+    margin: 0 0 $s-3;
+    font-size: $fs-h5;
+  }
+
+  p {
+    margin: 0 0 $s-3;
+    color: $c-muted;
+
+    &:last-child { margin-bottom: 0; }
+  }
+
+  a {
+    color: $c-maroon;
+    font-weight: $fw-medium;
+  }
+}
+
+.basic-page__notice p { max-width: 60ch; }
+
+.basic-page__contact {
+  dl {
+    display: grid;
+    gap: $s-5;
+    margin: $s-5 0 0;
+  }
+
+  dt {
+    margin-bottom: $s-1;
+    color: $c-muted;
+    font-size: $fs-sm;
+    font-weight: $fw-medium;
+  }
+
+  dd {
+    margin: 0;
+    color: $c-ink;
+    line-height: $lh-normal;
+  }
+
+  dd a {
+    display: inline-block;
+    padding: $s-1 0;
+  }
+
+  &--main {
+    background: $c-white;
+
+    h2 { font-size: $fs-h4; }
+
+    dd { font-size: $fs-lg; }
+  }
+}
+
+.basic-page__social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $s-2 $s-5;
+  margin: $s-6 0 0;
+  padding: $s-5 0 0;
+  border-top: 1px solid $c-line;
+  list-style: none;
+
+  a {
+    display: inline-block;
+    padding: $s-2 0;
+  }
+}
+
+@include desktop {
+  .basic-page__layout { grid-template-columns: minmax(0, 1fr); }
+}
+
+@include tablet {
+  .basic-page { padding: $section-y 0; }
+
+  .basic-page__notice,
+  .basic-page__contact { padding: $s-6; }
+}
+
+// ===========================================================================
 // Search results
 // ===========================================================================
 
 .search-page { padding: $section-y-lg 0; }
-
-.search-page__header {
-  max-width: 760px;
-  margin-bottom: $s-10;
-
-  h1 { margin-bottom: $s-6; }
-}
 
 .search-page__form {
   display: flex;

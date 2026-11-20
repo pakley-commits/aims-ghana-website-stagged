@@ -42,11 +42,11 @@
 {{ range $i,$p := .mission_item }}
 <section class="section ">
   <div class="container">
-    <div class="row align-items-center gy-5">
+    <div class="row align-items-start gy-4">
       <div class="col-lg-6 {{if modBool $i 2}}order-lg-0{{end}} order-0">
-        <div class="pe-0 pe-lgy-5">
+        <div class="pe-0 pe-lg-5">
           <!-- <h2 class="section-title h3">{{ .title | markdownify }}</h2> -->
-          <h3 class="mb-4 w-75" >{{ .content1 | markdownify }}</h3>
+          <h3 class="mb-4 home-intro__statement">{{ .content1 | markdownify }}</h3>
           {{ if .button.enable }}
           {{ with .button }}
           <a href="{{ .link | relLangURL }}" title="{{ .label }}" class="btn-link">{{ .label }} <i class="fas fa-arrow-right"></i></a>
@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="col-lg-6 {{if modBool $i 2}}order-lg-1{{end}} order-1">
-       <div class="pe-0 pe-lgy-5">
+       <div class="pe-0 home-intro__lead">
           <!-- <h2 class="section-title h3">{{ .title | markdownify }}</h2> -->
           <p class="mb-4">{{ .content2 | markdownify }}</p>
           {{ if .button.enable }}
@@ -120,7 +120,7 @@
       <div class="col-md-4 col-sm-6">
         <div class="impact-card p-4 h-100">
           <h3 class="impact-stat text-start display-5 text-primary">{{ .stat }}</h3>
-          <p class="impact-text  text-start fw-medium mt-3">{{ .content | markdownify }}</p>
+          <p class="impact-text text-start fw-medium mt-0">{{ .content | markdownify }}</p>
         </div>
       </div>
       {{ end }}
@@ -162,12 +162,7 @@
       <!-- TEXT SECOND -->
       <div class="col-lg-6">
         <div class="ps-lg-5">
-        {{ partial "image" (dict 
-    "Src" ("/images/quote.png" | relURL)
-    "Alt" ""
-    "Class" "quote-icon"
-    "AriaHidden" "true"
-) }}
+          <span class="quote-mark" aria-hidden="true">&ldquo;</span>
           <p class="fs-4 fw-medium mb-4 fst-italic text-black mt-2">
             
 
@@ -219,7 +214,7 @@
                     <div class="d-flex flex-column align-items-start bg-white w-100 px-3 py-4 rounded-3 flex-grow-1">
 
 
-              <!-- Blue Circle Check Icon -->
+              <!-- Circle check icon -->
               {{ partial "image" (dict 
     "Src" ("/images/checkmark.svg" | relURL)
     "Alt" ""
@@ -494,8 +489,11 @@
       {{ $blogs := where .Site.RegularPages "Section" "news" | first 6 }}
       {{ range $blogs }}
       <div class="col-md-4">
-        <div class="h-100">
-          <!-- Blog Image -->
+        {{/* Flex column so "Read More" sits at the foot of every card and the
+             links line up across the row whatever the title length. Imported
+             descriptions are often cut mid-word, so the excerpt is re-trimmed
+             at a word boundary (truncate adds the ellipsis) and clamped. */}}
+        <div class="home-news-card">
           {{ with .Params.image }}
           {{ with resources.Get . }}
           {{ $i := .Fill "800x400 Center" }}
@@ -503,29 +501,17 @@
           {{ end }}
           {{ end }}
 
-          <!-- Author & Date -->
-          <div class="d-flex align-items-center mb-2 text-muted u-text-xs">
-            {{ with .Params.author }}
-            <i class="far fa-user-circle me-1"></i> {{ . }}
-            {{ end }}
-            <i class="far fa-calendar-alt ms-3 me-1"></i> {{ .Date.Format "Jan 2, 2006" }}
-          </div>
-
-          <!-- Blog Title -->
-          <h5 class=" mb-2">{{ .Title }}</h5>
-
-          <!-- Excerpt / Description -->
-          <p class="text-muted u-text-sm">
-            {{ if .Params.description }}
-              {{ .Params.description }}
-            {{ else }}
-              {{ .Summary | plainify | truncate 120 }}
-            {{ end }}
+          <p class="home-news-card__meta">
+            {{ with .Params.author }}<span>{{ . }}</span>{{ end }}
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
           </p>
 
-          <!-- Read More Link -->
-          <a href="{{ .RelPermalink }}" class="text-primary fw-medium text-decoration-none">
-            Read More →
+          <h3 class="home-news-card__title">{{ .Title }}</h3>
+
+          <p class="home-news-card__excerpt">{{ partial "excerpt.html" (dict "page" . "length" 150) }}</p>
+
+          <a href="{{ .RelPermalink }}" class="home-news-card__more">
+            Read More<span class="visually-hidden">: {{ .Title }}</span> <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </div>

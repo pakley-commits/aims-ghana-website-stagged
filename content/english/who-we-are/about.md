@@ -70,16 +70,16 @@ aims_model:
 
   model:
     - brief: "A __broad research-driven curriculum__ blending mathematics, computing and real-world applications."
-      icon: "check-circle.png"
+      icon: "checkmark.svg"
       
     - brief: "__Computing facilities__, reliable internet access, and a collaborative residential learning environment."
-      icon: "check-circle.png"
+      icon: "checkmark.svg"
     
     - brief: "__Close mentorship__ through resident tutors and visiting international lecturers."
-      icon: "check-circle.png"
+      icon: "checkmark.svg"
     
     - brief: "__Full or partial scholarships__ covering tuition, housing, meals, and study materials."
-      icon: "check-circle.png"
+      icon: "checkmark.svg"
 
 # founders_quote
 

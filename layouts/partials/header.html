@@ -171,14 +171,9 @@
    class="btn btn-sm btn-primary ms-lg-4 mt-2 mt-lg-0 py-2 px-3 d-inline-flex align-items-center gap-2 items-center my-2"
 >
 
-  <span style="display:inline-block;">{{ site.Params.navigation_button.label }}</span>
-
-  <span style="display:inline-block; width:25px; height:25px; background:#F2960C; border-radius:50%;"></span>
+  <span>{{ site.Params.navigation_button.label }}</span>
+  <span class="btn-dot" aria-hidden="true"></span>
 </a>
-
-
-
-        </a>
         {{ end }}
 
         {{ if site.Params.theme_switcher }}

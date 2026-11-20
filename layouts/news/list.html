@@ -29,12 +29,13 @@
     {{ if $paginator.Pages }}
     <div class="news-list__grid">
       {{ range $paginator.Pages }}
+      {{ $url := .RelPermalink }}
       <article class="news-card">
         {{ with .Params.image }}
         {{ $img := resources.Get . }}
         {{ with $img }}
         {{ $i := .Fill "600x363 Center" }}
-        <a href="{{ $.RelPermalink }}" class="news-card__media" tabindex="-1" aria-hidden="true">
+        <a href="{{ $url }}" class="news-card__media" tabindex="-1" aria-hidden="true">
           <img src="{{ $i.RelPermalink }}" alt="" loading="lazy" width="600" height="363">
         </a>
         {{ end }}
@@ -42,7 +43,7 @@
         <div class="news-card__body">
           <p class="news-card__meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>
           <h2 class="news-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          {{ with .Description }}<p class="news-card__excerpt">{{ . }}</p>{{ end }}
+          {{ with partial "excerpt.html" (dict "page" . "length" 180) }}<p class="news-card__excerpt">{{ . }}</p>{{ end }}
         </div>
       </article>
       {{ end }}

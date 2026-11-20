@@ -4,7 +4,7 @@ date: 2022-03-02
 description: "The African Institute for Mathematical Sciences in Ghana (AIMS Ghana) kindly requests your best firmoffer for a Quotation Request for Dell Laptops and Accessories to Ghana. Quality specifications:Item 1: Dell Latitude 7420 Laptop with Acces"
 source: "https://aims.edu.gh/career/quotation-request-for-dell-laptops-and-accessories-to-ghana/"
 build_status: "built"
-posting_type: "Call for application"
+posting_type: "Procurement"
 location: "Ghana"
 draft: false
 ---

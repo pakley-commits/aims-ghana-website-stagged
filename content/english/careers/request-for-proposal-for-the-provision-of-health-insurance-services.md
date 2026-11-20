@@ -4,7 +4,7 @@ date: 2022-11-21
 description: "Within the framework of our academic operations in Accra, Greater Accra Region of Ghana, AIMS Ghana would like to request your Best and Final Offer (BAFO) in GHANA CEDIS (GHS) for the following services: Type:Provision of Health Insurance S"
 source: "https://aims.edu.gh/career/request-for-proposal-for-the-provision-of-health-insurance-services/"
 build_status: "built"
-posting_type: "Call for application"
+posting_type: "Procurement"
 location: "Ghana"
 draft: false
 ---

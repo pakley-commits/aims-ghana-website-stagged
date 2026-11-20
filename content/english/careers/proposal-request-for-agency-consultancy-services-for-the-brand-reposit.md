@@ -4,7 +4,7 @@ date: 2024-06-16
 description: "The African Institute for Mathematical Sciences – Network (AIMS-Network) is a pan-African network of Centres of Excellence for postgraduate training, research and outreach in the mathematical sciences. Its mission is to enable Africa’s brig"
 source: "https://aims.edu.gh/career/proposal-request-for-agency-consultancy-services-for-the-brand-repositioning-of-african-institute-for-mathematical-sciences/"
 build_status: "built"
-posting_type: "Call for application"
+posting_type: "Procurement"
 location: "Ghana"
 draft: false
 ---
