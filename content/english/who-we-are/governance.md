@@ -15,7 +15,8 @@ governance:
 
 board:
   title: "Board of Trustees"
-  content: "Institute remains true to its mission of excellence in mathematical sciences education, research, and innovation. Comprising distinguished leaders from academia, industry, and public service, the Board brings a wealth of experience, vision, and commitment to advancing AIMS Ghana’s role in shaping Africa’s scientific and technological future"
+  # Left empty: this repeated the hero paragraph above, starting mid-sentence.
+  content: ""
 
 team_members:
   - name: "Prof. Neil Turok"

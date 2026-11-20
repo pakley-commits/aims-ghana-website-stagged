@@ -29,20 +29,30 @@
     {{ if $paginator.Pages }}
     <div class="news-list__grid">
       {{ range $paginator.Pages }}
+      {{ $url := .RelPermalink }}
       <article class="news-card">
         {{ with .Params.image }}
         {{ $img := resources.Get . }}
         {{ with $img }}
         {{ $i := .Fill "600x363 Center" }}
-        <a href="{{ $.RelPermalink }}" class="news-card__media" tabindex="-1" aria-hidden="true">
+        <a href="{{ $url }}" class="news-card__media" tabindex="-1" aria-hidden="true">
           <img src="{{ $i.RelPermalink }}" alt="" loading="lazy" width="600" height="363">
         </a>
         {{ end }}
         {{ end }}
         <div class="news-card__body">
-          <p class="news-card__meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>
+          {{/* Optional front matter: event_date (YYYY-MM-DD) and venue. When
+               set, the card shows when and where the event happens; otherwise
+               it falls back to the date the announcement was posted. */}}
+          {{ with .Params.event_date }}
+          {{ $d := time . }}
+          <p class="news-card__meta"><time datetime="{{ $d.Format "2006-01-02" }}">{{ $d.Format "2 January 2006" }}</time></p>
+          {{ else }}
+          <p class="news-card__meta">Posted <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time></p>
+          {{ end }}
+          {{ with .Params.venue }}<p class="news-card__meta news-card__venue">{{ . }}</p>{{ end }}
           <h2 class="news-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-          {{ with .Description }}<p class="news-card__excerpt">{{ . }}</p>{{ end }}
+          {{ with partial "excerpt.html" (dict "page" . "length" 180) }}<p class="news-card__excerpt">{{ . }}</p>{{ end }}
         </div>
       </article>
       {{ end }}
