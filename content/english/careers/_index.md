@@ -10,7 +10,7 @@ intro_blocks:
     content: "Join a pan-African network of centres of excellence dedicated to advancing mathematical sciences and developing the next generation of African leaders in science, technology and innovation."
     image: "images/about.jpg"
   - direction: "image-left"
-    title: "Supervise At AIMS"
+    title: "Supervise A Project At AIMS"
     content: "Since 2012, AIMS Ghana has trained over 500 graduates, 33% of them women, through fully funded postgraduate programmes that combine rigorous coursework with independent research and real-world application."
     image: "images/unesco-centre-of-excellence.png"
   - direction: "text-left"

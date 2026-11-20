@@ -3716,28 +3716,47 @@ body .cookie-box.cookie-box-hide { display: none; }
   display: flex;
   flex-direction: column;
   gap: $s-3;
+  padding: $s-10;
+  border: 2px solid $c-line;
+  border-radius: $r-md;
+  background: $c-white;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-2;
+    border-color: $c-maroon;
+  }
+}
+
+.career-card__tags {
+  position: absolute;
+  top: $s-4;
+  right: $s-4;
+  display: flex;
+  gap: $s-2;
+  flex-wrap: wrap;
 }
 
 .career-card__meta {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
-  margin: 0;
+  margin: $s-3 0 0 0;
   color: $c-muted;
   font-size: $fs-sm;
   line-height: 24px;
 }
 
-.career-card__lead {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: $s-1 $s-2;
+.career-card__meta time {
+  color: $c-muted;
+  font-weight: $fw-medium;
+}
 
-  // Date and tag never break internally; the tag drops to its own line when
-  // the card is too narrow for both.
-  time { white-space: nowrap; }
+.career-card__loc {
+  text-align: right;
 }
 
 .career-card__tag {
@@ -3746,19 +3765,28 @@ body .cookie-box.cookie-box-hide { display: none; }
   border-radius: $r-pill;
   background: color-mix(in srgb, #{$c-maroon} 10%, transparent);
   color: $c-maroon;
+  font-size: $fs-xs;
+  font-weight: $fw-medium;
+  margin-top: $s-2;
 }
 
-.career-card__loc { text-align: right; }
+.career-card__tag--closed {
+  background: color-mix(in srgb, #{$c-ink} 12%, transparent);
+  color: $c-ink;
+}
 
 .career-card__title {
   display: -webkit-box;
-  margin: 0;
+  margin: $s-4 0 $s-3 0;
+  padding-right: 100px;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  font-size: $fs-h5;
-  line-height: 30px;
+  -webkit-line-clamp: 4;
+  font-size: $fs-h6;
+  line-height: $lh-snug;
   letter-spacing: 0;
+  color: $c-ink;
+  font-weight: $fw-bold;
 
   a {
     color: $c-ink;
@@ -3772,7 +3800,7 @@ body .cookie-box.cookie-box-hide { display: none; }
   width: 100%;
   margin: 0;
   border: 0;
-  border-top: 1px solid $c-line;
+  border-top: 2px solid $c-maroon;
 }
 
 .career-card__excerpt {
@@ -3780,13 +3808,18 @@ body .cookie-box.cookie-box-hide { display: none; }
   margin: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  // Body size, so the job title stays the first thing read (was 20px, larger
-  // than the title on phones). Four lines is enough to tell postings apart.
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 2;
   color: $c-muted;
   font-size: $fs-body;
   line-height: $lh-normal;
   overflow-wrap: anywhere;
+}
+
+.careers-list__section-title {
+  margin: 0 0 $s-8 0;
+  font-size: $fs-h2;
+  line-height: $lh-snug;
+  color: $c-ink;
 }
 
 @include desktop-lg {
@@ -3826,6 +3859,23 @@ body .cookie-box.cookie-box-hide { display: none; }
   flex: 1 1 300px;
 }
 
+@include mobile {
+  .careers-intro__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $s-6;
+  }
+  .careers-intro__text,
+  .careers-intro__image {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .careers-intro__img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 .careers-intro__title {
   margin: 0 0 $s-6 0;
   font-size: $fs-h3;
@@ -3847,9 +3897,37 @@ body .cookie-box.cookie-box-hide { display: none; }
   border-radius: $r-md;
 }
 
+@media (max-width: 575px) {
+  .careers-intro__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $s-6;
+  }
+  .careers-intro__text {
+    order: 1;
+  }
+  .careers-intro__image {
+    order: 2;
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .careers-intro__text {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .careers-intro__img {
+    width: 100%;
+    height: auto;
+  }
+}
+
 @include desktop {
   .careers-intro__row { gap: $s-16; }
   .careers-intro__title { font-size: $fs-h2; }
+
+  .careers-intro__block.image-left .careers-intro__row {
+    flex-direction: row-reverse;
+  }
 }
 
 @include tablet {
