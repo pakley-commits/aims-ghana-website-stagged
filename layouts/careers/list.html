@@ -23,8 +23,8 @@
         </div>
         <div class="career-card__tags">
           {{ with .Params.posting_type }}<span class="career-card__tag">{{ . }}</span>{{ end }}
-          <span class="career-card__tag career-card__tag--closed">Closed</span>
         </div>
+        <span class="career-card__tag career-card__tag--closed">Closed</span>
         <hr class="career-card__rule">
         {{ with .Description }}<p class="career-card__excerpt">{{ . }}</p>{{ end }}
       </article>

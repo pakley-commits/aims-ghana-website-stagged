@@ -3716,7 +3716,7 @@ body .cookie-box.cookie-box-hide { display: none; }
   display: flex;
   flex-direction: column;
   gap: $s-3;
-  padding: $s-10;
+  padding: $s-10 $s-6;
   border: 2px solid $c-line;
   border-radius: $r-md;
   background: $c-white;
@@ -3733,7 +3733,7 @@ body .cookie-box.cookie-box-hide { display: none; }
 .career-card__tags {
   position: absolute;
   top: $s-4;
-  right: $s-4;
+  left: $s-4;
   display: flex;
   gap: $s-2;
   flex-wrap: wrap;
@@ -3771,22 +3771,24 @@ body .cookie-box.cookie-box-hide { display: none; }
 }
 
 .career-card__tag--closed {
+  position: absolute;
+  top: $s-4;
+  right: $s-4;
   background: color-mix(in srgb, #{$c-ink} 12%, transparent);
   color: $c-ink;
 }
 
 .career-card__title {
   display: -webkit-box;
-  margin: $s-4 0 $s-3 0;
-  padding-right: 100px;
+  margin: $s-6 0 $s-3 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
-  font-size: $fs-h6;
+  font-size: 18px;
   line-height: $lh-snug;
   letter-spacing: 0;
   color: $c-ink;
-  font-weight: $fw-bold;
+  font-weight: $fw-semibold;
 
   a {
     color: $c-ink;
@@ -3880,14 +3882,22 @@ body .cookie-box.cookie-box-hide { display: none; }
   margin: 0 0 $s-6 0;
   font-size: $fs-h3;
   line-height: $lh-snug;
-  color: $c-ink;
+  color: $c-maroon;
 }
 
 .careers-intro__body {
   margin: 0;
   color: $c-muted;
-  font-size: $fs-body;
-  line-height: $lh-normal;
+  font-size: $fs-h6;
+  line-height: $lh-relaxed;
+
+  a {
+    color: $c-maroon;
+    text-decoration: underline;
+    font-weight: $fw-semibold;
+
+    &:hover { color: $c-maroon-deep; }
+  }
 }
 
 .careers-intro__img {
