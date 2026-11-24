@@ -1,0 +1,13 @@
+{{/*
+  Card excerpt for a page. Imported descriptions are often cut mid-word
+  ("...Strengthening Afric"), so the text is trimmed at a word boundary
+  (truncate adds the ellipsis), and a trailing half-word is dropped when the
+  text doesn't end in punctuation.
+
+  Usage: {{ partial "excerpt.html" (dict "page" . "length" 150) }}
+*/}}
+{{ $excerpt := (.page.Description | default (.page.Summary | plainify)) | truncate (.length | default 150) | string }}
+{{ if and $excerpt (not (findRE `[.!?…"”)]\s*$` $excerpt)) }}
+  {{ $excerpt = printf "%s…" (replaceRE `[\s,;:–-]+\S*\s*$` "" $excerpt) }}
+{{ end }}
+{{ return $excerpt }}

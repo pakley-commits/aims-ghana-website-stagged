@@ -1,14 +1,34 @@
 {{ define "main" }}
-
-<section class="section">
+{{/* Not-found page: plain page header, a site search, and the most-used
+     destinations, so a broken link still gets the visitor somewhere. */}}
+<section class="basic-page not-found">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-10 mx-auto text-center">
-        <h1>404 Page Not Found!</h1>
-        <a href="{{site.BaseURL | relLangURL}}" class="btn btn-primary">Back To Home</a>
-      </div>
-    </div>
+    <header class="section-hub__header">
+      <h1>Page not found</h1>
+      <p>The page you were looking for has moved or no longer exists. Try a search, or start from one of these pages.</p>
+    </header>
+
+    <form class="search-page__form not-found__search" action="{{ "search/" | relLangURL }}" method="get" role="search">
+      <label for="not-found-search" class="visually-hidden">Search AIMS Ghana</label>
+      <input id="not-found-search" type="search" name="q" placeholder="Search AIMS Ghana">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <ul class="section-hub__grid not-found__links">
+      {{ range slice
+        (dict "name" "Home" "url" "/" "desc" "Back to the start.")
+        (dict "name" "Programmes" "url" "/training/programs/" "desc" "Master's and other training programmes.")
+        (dict "name" "News" "url" "/news/" "desc" "Stories and announcements from AIMS Ghana.")
+        (dict "name" "Contact" "url" "/contact/" "desc" "Get in touch with our team.")
+      }}
+      <li>
+        <a class="section-hub__card" href="{{ .url | relLangURL }}">
+          <span class="section-hub__name">{{ .name }} <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+          <span class="section-hub__desc">{{ .desc }}</span>
+        </a>
+      </li>
+      {{ end }}
+    </ul>
   </div>
 </section>
-
 {{ end }}

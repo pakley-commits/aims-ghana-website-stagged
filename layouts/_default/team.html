@@ -14,7 +14,7 @@
   <div class="governance-board__container">
     <div class="governance-board__header">
       <h2>{{ .title | markdownify }}</h2>
-      <p>{{ .content | markdownify }}</p>
+      {{ with .content }}<p>{{ . | markdownify }}</p>{{ end }}
     </div>
 
     {{ with $.Params.team_members }}

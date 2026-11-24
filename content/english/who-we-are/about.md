@@ -24,7 +24,7 @@ excellence:
   title: "AIMS Ghana is a UNESCO Category II Centre of Excellence"
   content: |
     Additionally, AIMS Ghana Master’s programs are accredited by the National Accreditation Board (Ghana). Since its inception, AIMS Ghana has graduated over 500 students, 33% of them being women.
-  image: "/images/Rectangle 605.png"
+  image: "images/unesco-centre-of-excellence.png"
   
 # vision
 
@@ -66,20 +66,20 @@ corevalues:
 aims_model: 
   enable: true
   model_title: "THE AIMS MODEL"
-  model_text: "The AIMS model is a pan-African innovation in higher education designed to identify and nurture Africa's most promising graduates. It offers;"
+  model_text: "The AIMS model is a pan-African innovation in higher education designed to identify and nurture Africa's most promising graduates. It offers:"
 
   model:
     - brief: "A __broad research-driven curriculum__ blending mathematics, computing and real-world applications."
-      icon: "check-circle.png"
+      icon: "checkmark.svg"
       
     - brief: "__Computing facilities__, reliable internet access, and a collaborative residential learning environment."
-      icon: "check-circle.png"
+      icon: "checkmark.svg"
     
     - brief: "__Close mentorship__ through resident tutors and visiting international lecturers."
-      icon: "check-circle.png"
+      icon: "checkmark.svg"
     
-    - brief: "__Full or partial schorloarships__ covering tuition, housing, meals, and study materials."
-      icon: "check-circle.png"
+    - brief: "__Full or partial scholarships__ covering tuition, housing, meals, and study materials."
+      icon: "checkmark.svg"
 
 # founders_quote
 

@@ -1,9 +1,7 @@
 ---
 title: "Contact"
-description: "Get in touch with AIMS Ghana."
-figma_frame: ""
-build_phase: 0
-build_status: "undesigned"
+description: "Questions about our programmes, research, partnerships or visits? Email us and the right person on our team will get back to you."
 layout: "stub"
+contact_panel: "main"
 draft: false
 ---

@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{/* Careers listing — Figma "Careers list": 4-up grid of Career Cards (meta, title, rule, clamped excerpt). */}}
+{{/* Careers listing — Figma "Careers list": 3-up grid of Career Cards, then intro blocks with alternating text/image. */}}
 {{ $pages := .RegularPagesRecursive }}
 {{ if .IsSection }}{{ $pages = .RegularPages }}{{ end }}
 {{ $paginator := .Paginate ($pages.ByDate.Reverse) 12 }}
@@ -12,20 +12,10 @@
     </header>
 
     {{ if $paginator.Pages }}
+    <h2 class="careers-list__section-title">Open roles</h2>
     <div class="careers-list__grid">
       {{ range $paginator.Pages }}
-      <article class="career-card">
-        <p class="career-card__meta">
-          <span class="career-card__lead">
-            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan. 2006" }}</time>
-            {{ with .Params.posting_type }}<span class="career-card__tag">{{ . }}</span>{{ end }}
-          </span>
-          {{ with .Params.location }}<span class="career-card__loc">{{ . }}</span>{{ end }}
-        </p>
-        <h2 class="career-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        <hr class="career-card__rule">
-        {{ with .Description }}<p class="career-card__excerpt">{{ . }}</p>{{ end }}
-      </article>
+      {{ partial "career-card.html" . }}
       {{ end }}
     </div>
 
@@ -41,6 +31,44 @@
     <p class="news-list__empty">
       No openings are listed at the moment.
     </p>
+    {{ end }}
+
+    {{ with .Params.intro_blocks }}
+    <div class="careers-intro">
+      {{ range . }}
+      <div class="careers-intro__block {{ .direction }}">
+        <div class="container">
+          <div class="careers-intro__row">
+            {{ if eq .direction "text-left" }}
+            <div class="careers-intro__text">
+              <h2 class="careers-intro__title">{{ .title }}</h2>
+              {{ with .content }}<p class="careers-intro__body">{{ . | markdownify }}</p>{{ end }}
+            </div>
+            <div class="careers-intro__image">
+              {{ $img := resources.Get .image }}
+              {{ with $img }}
+              {{ $i := .Fill "800x600 Center" }}
+              <img src="{{ $i.RelPermalink }}" alt="" width="800" height="600" class="careers-intro__img">
+              {{ end }}
+            </div>
+            {{ else }}
+            <div class="careers-intro__image">
+              {{ $img := resources.Get .image }}
+              {{ with $img }}
+              {{ $i := .Fill "800x600 Center" }}
+              <img src="{{ $i.RelPermalink }}" alt="" width="800" height="600" class="careers-intro__img">
+              {{ end }}
+            </div>
+            <div class="careers-intro__text">
+              <h2 class="careers-intro__title">{{ .title }}</h2>
+              {{ with .content }}<p class="careers-intro__body">{{ . | markdownify }}</p>{{ end }}
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      {{ end }}
+    </div>
     {{ end }}
   </div>
 </section>

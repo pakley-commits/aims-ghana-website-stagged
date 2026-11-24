@@ -5,7 +5,8 @@ build_status: "partial"
 draft: false
 ####################### Banner #########################
 banner:
-  title : "In Africa’s Youth the Future of Science"
+  title : "In Africa’s youth, the future of science."
+  content: "We prepare talented graduates to lead research and solve challenges shaping Africa's future."
   image : "images/home_hero.png"
   #content : "Create a best strategic tool, share it with your team and ensure it’s on track with intuitive dashboards. <br> Simple enough with the sophistication and flexibility to meet the needs of large enterprises"
   #button:
@@ -45,17 +46,17 @@ impact:
   title: "Our Impact"
   impact_item:
     - stat: "700+"
-      content: "students have completed the AIMS Ghana master’s programme since 2012, joining a global network of more than 3 200 AIMS graduates"
+      content: "students have completed the AIMS Ghana master’s programme since 2012, joining a global network of more than 3 200 AIMS graduates."
     - stat: "33%"
-      content: "women enrolled across the AIMS Ghana, underscoring AIMS’ commitment to gender diversity in mathematical sciences"
+      content: "women enrolled at AIMS Ghana, underscoring AIMS’ commitment to gender diversity in mathematical sciences."
     - stat: "78%"
       content: "working in Africa, contributing their expertise to universities, research institutions, industry and government."
     - stat: "88%"
-      content: "employed or pursuing further studies - continue to graduate school soon after completing their programme"
+      content: "employed or pursuing further studies soon after completing their programme."
     - stat: "300+"
-      content: "graduates per year across the five AIMS centres annually , with AIMS Ghana playing a key role in this talent pipeline."
+      content: "graduates per year across the five AIMS centres, with AIMS Ghana playing a key role in this talent pipeline."
     - stat: "250+"
-      content: "researchers across its network , ensuring students and alumni benefit from a vibrant, globally connected scientific community"
+      content: "researchers across its network, ensuring students and alumni benefit from a vibrant, globally connected scientific community."
 
 
 ########################## Succes story #########################
