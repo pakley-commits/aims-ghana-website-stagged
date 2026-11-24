@@ -5,6 +5,9 @@ description: "The African Institute for Mathematical Sciences (AIMS) Ghana, a me
 source: "https://aims.edu.gh/career/proposal-request-catering-services-for-aims-ghana-july-2026/"
 build_status: "built"
 posting_type: "Procurement"
+# TEMPORARY — opens at build time, closes 5 minutes later, so the Apply Now
+# timeout can be watched end to end. Remove before launch.
+preview_window: "5m"
 location: "Ghana"
 draft: false
 ---

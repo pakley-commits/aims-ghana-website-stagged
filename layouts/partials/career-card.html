@@ -3,9 +3,9 @@
   (clamped to 2 lines), excerpt (clamped to 4 lines), More info / Apply Now.
 
   Closing date, in order of precedence:
-    1. `careers_preview_window` (site param) — a testing switch: when set to a
-       duration such as "5m", every posting opens at build time and closes
-       that long afterwards. Empty in production;
+    1. `preview_window` in front matter — a testing switch on a single
+       posting: when set to a duration such as "5m", it opens at build time
+       and closes that long afterwards. Remove before launch;
     2. `deadline` in the posting's front matter (a date), closing end of day;
     3. otherwise the publish date plus `careers_open_days` (site param,
        default 30);
@@ -22,7 +22,7 @@
 {{ with $page.Params.deadline }}
   {{ $closesAt = (time.AsTime .).Add (time.ParseDuration "23h59m59s") }}
 {{ end }}
-{{ with site.Params.careers_preview_window }}
+{{ with $page.Params.preview_window }}
   {{ $closesAt = now.Add (time.ParseDuration .) }}
 {{ end }}
 {{ $closed := ge now.Unix $closesAt.Unix }}

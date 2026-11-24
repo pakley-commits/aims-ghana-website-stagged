@@ -120,6 +120,7 @@
       "card",
       "card-body",
       "career-card",
+      "career-card--closed",
       "career-card__actions",
       "career-card__btn",
       "career-card__btn--closed",
