@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{/* Careers listing — Figma "Careers list": 4-up grid of Career Cards (meta, title, rule, clamped excerpt), then intro blocks with alternating text/image. */}}
+{{/* Careers listing — Figma "Careers list": 3-up grid of Career Cards, then intro blocks with alternating text/image. */}}
 {{ $pages := .RegularPagesRecursive }}
 {{ if .IsSection }}{{ $pages = .RegularPages }}{{ end }}
 {{ $paginator := .Paginate ($pages.ByDate.Reverse) 12 }}
@@ -15,19 +15,7 @@
     <h2 class="careers-list__section-title">Open roles</h2>
     <div class="careers-list__grid">
       {{ range $paginator.Pages }}
-      <article class="career-card">
-        <div class="career-card__tags">
-          {{ with .Params.posting_type }}<span class="career-card__tag">{{ . }}</span>{{ end }}
-          <span class="career-card__tag career-card__tag--closed">Closed</span>
-        </div>
-        <h2 class="career-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        <div class="career-card__meta">
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan. 2006" }}</time>
-          {{ with .Params.location }}<span class="career-card__loc">{{ . }}</span>{{ end }}
-        </div>
-        <hr class="career-card__rule">
-        {{ with .Description }}<p class="career-card__excerpt">{{ . }}</p>{{ end }}
-      </article>
+      {{ partial "career-card.html" . }}
       {{ end }}
     </div>
 

@@ -1,7 +1,7 @@
 ---
-title: "Proposal Request for the Design and Development of WordPress-based Websites for the African Institute for Mathematical Sciences"
+title: "Design and Development of WordPress Websites for the AIMS Network"
 date: 2024-06-16
-description: "AIMS Ghana seeks to develop new websites for the AIMS-Network of Centres of Excellence that reflect the evolving digital needs of our academic and research community. The primary objective is to create modern, user-friendly, and easily mana"
+description: "AIMS Ghana invites proposals to design and build new websites for the AIMS Network’s Centres of Excellence on one WordPress multi-site platform, each with its own identity and a shared design ethos."
 source: "https://aims.edu.gh/career/proposal-request-for-the-design-and-development-of-wordpress-based-websites-for-the-african-institute-for-mathematical-sciences/"
 build_status: "built"
 posting_type: "Procurement"

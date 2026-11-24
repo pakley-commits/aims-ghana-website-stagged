@@ -18,6 +18,16 @@ theme_switcher = false
 theme_default = "system" # available options [light/dark/system]
 # Main Sections
 mainSections = ["news"]
+
+# Careers: how many days after its publish date a posting stays open. The
+# "Apply Now" button turns into a disabled "Closed" chip once the window ends.
+# A posting can override this with `deadline:` in its own front matter.
+careers_open_days = 30
+
+# TEMPORARY — testing the closing behaviour. When set to a duration ("5m",
+# "2h"), every posting opens at build time and closes that long afterwards,
+# ignoring careers_open_days. Set back to "" before this goes live.
+careers_preview_window = "5m"
 # contact form action
 contact_form_action = "#!" # contact form works with [https://airform.io/] or [https://formspree.io]
 # demo form action

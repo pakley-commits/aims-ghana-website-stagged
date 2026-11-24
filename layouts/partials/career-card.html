@@ -1,0 +1,48 @@
+{{/*
+  Career card — Figma "Careers list" card: date + type chip, rule, title
+  (clamped to 2 lines), excerpt (clamped to 4 lines), More info / Apply Now.
+
+  Closing date, in order of precedence:
+    1. `careers_preview_window` (site param) — a testing switch: when set to a
+       duration such as "5m", every posting opens at build time and closes
+       that long afterwards. Empty in production;
+    2. `deadline` in the posting's front matter (a date), closing end of day;
+    3. otherwise the publish date plus `careers_open_days` (site param,
+       default 30);
+    4. `closed: true` in front matter forces the closed state either way.
+
+  Hugo resolves this at build time, so assets/js/career-deadlines.js re-checks
+  in the browser — a page built while a posting was open still closes on time.
+
+  Usage: {{ partial "career-card.html" . }}
+*/}}
+{{ $page := . }}
+{{ $openDays := int (site.Params.careers_open_days | default 30) }}
+{{ $closesAt := $page.Date.AddDate 0 0 $openDays }}
+{{ with $page.Params.deadline }}
+  {{ $closesAt = (time.AsTime .).Add (time.ParseDuration "23h59m59s") }}
+{{ end }}
+{{ with site.Params.careers_preview_window }}
+  {{ $closesAt = now.Add (time.ParseDuration .) }}
+{{ end }}
+{{ $closed := ge now.Unix $closesAt.Unix }}
+{{ if eq $page.Params.closed true }}{{ $closed = true }}{{ end }}
+
+<article class="career-card{{ if $closed }} career-card--closed{{ end }}"
+         data-closes-at="{{ $closesAt.Format "2006-01-02T15:04:05Z07:00" }}">
+  <div class="career-card__meta">
+    <time class="career-card__date" datetime="{{ $page.Date.Format "2006-01-02" }}">{{ $page.Date.Format "2 Jan. 2006" }}</time>
+    {{ with $page.Params.posting_type }}<span class="career-card__tag">{{ . }}</span>{{ end }}
+  </div>
+
+  <hr class="career-card__rule">
+
+  <h3 class="career-card__title"><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h3>
+  <p class="career-card__excerpt">{{ partial "excerpt.html" (dict "page" $page "length" 200) }}</p>
+
+  <div class="career-card__actions">
+    <a class="career-card__btn" href="{{ $page.RelPermalink }}">More info</a>
+    <a class="career-card__btn career-card__btn--primary" href="{{ $page.RelPermalink }}"{{ if $closed }} hidden{{ end }}>Apply Now</a>
+    <span class="career-card__btn career-card__btn--closed" aria-disabled="true"{{ if not $closed }} hidden{{ end }}>Closed</span>
+  </div>
+</article>
