@@ -16,15 +16,15 @@
     <div class="careers-list__grid">
       {{ range $paginator.Pages }}
       <article class="career-card">
+        <div class="career-card__tags">
+          {{ with .Params.posting_type }}<span class="career-card__tag">{{ . }}</span>{{ end }}
+          <span class="career-card__tag career-card__tag--closed">Closed</span>
+        </div>
         <h2 class="career-card__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
         <div class="career-card__meta">
           <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 Jan. 2006" }}</time>
           {{ with .Params.location }}<span class="career-card__loc">{{ . }}</span>{{ end }}
         </div>
-        <div class="career-card__tags">
-          {{ with .Params.posting_type }}<span class="career-card__tag">{{ . }}</span>{{ end }}
-        </div>
-        <span class="career-card__tag career-card__tag--closed">Closed</span>
         <hr class="career-card__rule">
         {{ with .Description }}<p class="career-card__excerpt">{{ . }}</p>{{ end }}
       </article>

@@ -3721,6 +3721,7 @@ body .cookie-box.cookie-box-hide { display: none; }
   border-radius: $r-md;
   background: $c-white;
   position: relative;
+  min-height: 0;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 
   &:hover {
@@ -3728,15 +3729,6 @@ body .cookie-box.cookie-box-hide { display: none; }
     box-shadow: $shadow-2;
     border-color: $c-maroon;
   }
-}
-
-.career-card__tags {
-  position: absolute;
-  top: $s-4;
-  left: $s-4;
-  display: flex;
-  gap: $s-2;
-  flex-wrap: wrap;
 }
 
 .career-card__meta {
@@ -3759,6 +3751,14 @@ body .cookie-box.cookie-box-hide { display: none; }
   text-align: right;
 }
 
+.career-card__tags {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $s-2;
+  margin-bottom: $s-4;
+}
+
 .career-card__tag {
   white-space: nowrap;
   padding: 1px $s-2;
@@ -3767,20 +3767,16 @@ body .cookie-box.cookie-box-hide { display: none; }
   color: $c-maroon;
   font-size: $fs-xs;
   font-weight: $fw-medium;
-  margin-top: $s-2;
 }
 
 .career-card__tag--closed {
-  position: absolute;
-  top: $s-4;
-  right: $s-4;
   background: color-mix(in srgb, #{$c-ink} 12%, transparent);
   color: $c-ink;
 }
 
 .career-card__title {
   display: -webkit-box;
-  margin: $s-6 0 $s-3 0;
+  margin: 0 0 $s-3 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 4;
@@ -5809,3 +5805,4 @@ body .cookie-box.cookie-box-hide { display: none; }
     height: 0;
   }
 }
+
