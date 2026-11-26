@@ -1,5 +1,6 @@
 ---
 title: "Facilities Manager"
+hide_apply_button: true
 date: 2025-11-13
 description: "Reporting to the Chief Operating Officer, the AIMS Ghana Centre Facilities Manager will primarily be responsible for making sure that buildings, properties and their services meet the needs of the people who work or live in them. He/she ens"
 source: "https://aims.edu.gh/career/facilities-manager-aims-ghana/"

@@ -1,5 +1,6 @@
 ---
 title: "Alumni"
+hide_apply_button: true
 description: "AIMS Ghana graduates working across research, industry and education."
 figma_frame: "Alumni Wall"
 build_phase: 3

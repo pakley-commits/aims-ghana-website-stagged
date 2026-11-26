@@ -1,5 +1,6 @@
 ---
 title: "Academic Director Undergraduate"
+hide_apply_button: true
 date: 2024-04-29
 description: "Reporting to the Centre President, you will spearhead the management of all Undergraduate Academic Programs. You will oversee a roster of students from across Africa under the direction of the Centre President. Additionally, you will manage"
 source: "https://aims.edu.gh/career/academic-director-undergraduate/"

@@ -1,5 +1,6 @@
 ---
 title: "Request for Proposal – Life Insurance"
+hide_apply_button: true
 date: 2021-12-24
 description: "Provision of Group Life Insurance Services to AIMS Ghana staff. Download document for further details."
 source: "https://aims.edu.gh/career/request-for-proposal-life-insurance/"

@@ -1,5 +1,6 @@
 ---
 title: "Policies"
+hide_apply_button: true
 description: "Institutional policies and governance documents."
 figma_frame: "Partnerships and Policies"
 build_phase: 5

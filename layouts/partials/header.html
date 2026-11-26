@@ -146,7 +146,7 @@
           {{ end }}
         </ul>
 
-        {{ if site.Params.navigation_button.enable }}
+        {{ if and site.Params.navigation_button.enable (not .Params.hide_apply_button) }}
         <a href="{{ site.Params.navigation_button.link | relLangURL }}" class="primary-navigation__action btn btn-sm btn-primary">
           <span>{{ site.Params.navigation_button.label }}</span>
           <span class="primary-navigation__action-dot" aria-hidden="true"></span>
@@ -198,10 +198,12 @@
 <!-- theme switcher -->
 {{ if site.Params.theme_switcher }}
 <script>
-  var darkMode = {{if eq site.Params.theme_default "dark"}}true{{else}}false{{end}};
-  {{ if eq site.Params.theme_default "system" }}
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches){darkMode = true}
-  {{ end }}
+  var themeDefault = "{{ site.Params.theme_default }}";
+var darkMode = themeDefault === "dark";
+
+if (themeDefault === "system") {
+  darkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
   if (localStorage.getItem('theme') === 'dark'){darkMode = true}
   else if (localStorage.getItem('theme') === 'light'){darkMode = false}
   if (darkMode){document.body.classList.toggle('dark')}

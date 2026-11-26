@@ -1,5 +1,6 @@
 ---
 title: "Senior Manager, Communications"
+hide_apply_button: true
 date: 2024-04-29
 description: "Based at the AIMS Ghana Centre, and reporting to the Centre President, the Senior Manager, Communications will champion strong public engagement initiatives, influencing change among a diverse group of professionals both internal and extern"
 source: "https://aims.edu.gh/career/senior-manager-communications/"

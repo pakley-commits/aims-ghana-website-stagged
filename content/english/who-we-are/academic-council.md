@@ -1,5 +1,6 @@
 ---
 title: "Academic Council"
+hide_apply_button: true
 description: "The academics and partner-university heads who provide academic leadership and quality assurance for AIMS Ghana."
 figma_frame: "Academic Council"
 build_phase: 3

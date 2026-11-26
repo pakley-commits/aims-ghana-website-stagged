@@ -1,5 +1,6 @@
 ---
 title: "Quotation Request for Supply of Dell Vostro 3500 Laptops – 50"
+hide_apply_button: true
 date: 2023-08-21
 description: "This is the African Institute for Mathematical Sciences, Ghana (AIMS, Ghana) a member of the AIMS-NEI network. Within the framework of our academic operations in Accra, Greater Accra Region of Ghana, we would like to request your best firm "
 source: "https://aims.edu.gh/career/quotation-request-for-supply-of-dell-vostro-3500-laptops-2/"

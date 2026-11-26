@@ -1,4 +1,4 @@
----
+#---
 title: "Our Students"
 description: "The current AIMS Ghana cohort."
 figma_frame: "Our Students"
@@ -163,4 +163,4 @@ people:
   - name: "Akotchayé Christian Akoutan-Ayaka"
     country: "Benin"
     image: "images/students/akotchaye-christian-akoutan-ayaka.jpg"
----
+---#
