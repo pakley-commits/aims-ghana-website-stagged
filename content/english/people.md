@@ -1,5 +1,6 @@
 ---
 title: "People"
+hide_apply_button: true
 description: "The trustees, staff, faculty, researchers, students and alumni of AIMS Ghana."
 build_phase: 3
 build_status: "built"
@@ -43,11 +44,11 @@ groups:
         url: "/research/chairs/"
         note: "Endowed research chairs"
 
-  - heading: "Students & alumni"
+  - heading: "Alumni"
     items:
-      - name: "Our Students"
-        url: "/who-we-are/students/"
-        note: "The current cohort"
+     # - name: "Our Students"
+      #  url: "/who-we-are/students/"
+       # note: "The current cohort"
       - name: "Alumni"
         url: "/who-we-are/alumni/"
         note: "Graduates across research, industry and education"

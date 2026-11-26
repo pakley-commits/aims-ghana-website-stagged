@@ -1,5 +1,6 @@
 ---
 title: "Program Officer"
+hide_apply_button: true
 date: 2025-01-17
 description: "Title: Program Officer Reports to: Academic Manager Status: Contract Duty Station: Accra, Ghana Overview It is expected that the Program Officer will form part of the Academic team and will perform all duties required for the smooth operati"
 source: "https://aims.edu.gh/career/program-officer-aims-ghana/"

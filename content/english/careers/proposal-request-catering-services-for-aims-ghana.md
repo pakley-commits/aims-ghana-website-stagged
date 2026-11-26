@@ -1,5 +1,6 @@
 ---
 title: "Proposal Request – Catering Services for AIMS Ghana"
+hide_apply_button: true
 date: 2023-07-25
 description: "This is the African Institute for Mathematical Sciences, Ghana (AIMS, Ghana) a member of the AIMSNEI network.Within the framework of our academic operations in Accra, Greater Accra Region of Ghana, we wouldlike to request your Best and Fina"
 source: "https://aims.edu.gh/career/proposal-request-catering-services-for-aims-ghana/"

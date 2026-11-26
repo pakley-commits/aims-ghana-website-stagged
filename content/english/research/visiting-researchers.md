@@ -1,5 +1,6 @@
 ---
 title: "Visiting Researcher Program"
+hide_apply_button: true
 description: "The programme through which researchers visit and work at AIMS Ghana."
 build_phase: 5
 build_status: "built"

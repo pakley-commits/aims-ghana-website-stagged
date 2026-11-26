@@ -1,5 +1,6 @@
 ---
 title: "Proposal Request – Cleaning Services"
+hide_apply_button: true
 date: 2023-08-16
 description: "This is the African Institute for Mathematical Sciences, Ghana (AIMS, Ghana) a member of the AIMS-NEI network. Within the framework of our academic operations in Accra, Greater Accra Region of Ghana, we would like to request your Best and F"
 source: "https://aims.edu.gh/career/proposal-request-cleaning-services/"

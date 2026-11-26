@@ -146,7 +146,7 @@
           {{ end }}
         </ul>
 
-        {{ if site.Params.navigation_button.enable }}
+        {{ if and site.Params.navigation_button.enable (not .Params.hide_apply_button) }}
         <a href="{{ site.Params.navigation_button.link | relLangURL }}" class="primary-navigation__action btn btn-sm btn-primary">
           <span>{{ site.Params.navigation_button.label }}</span>
           <span class="primary-navigation__action-dot" aria-hidden="true"></span>
@@ -198,7 +198,11 @@
 <!-- theme switcher -->
 {{ if site.Params.theme_switcher }}
 <script>
+<<<<<<< HEAD
 var themeDefault = "{{ site.Params.theme_default }}";
+=======
+  var themeDefault = "{{ site.Params.theme_default }}";
+>>>>>>> a753ebd03a9111eca4d57ae1f0d564448fab6f98
 var darkMode = themeDefault === "dark";
 
 if (themeDefault === "system") {

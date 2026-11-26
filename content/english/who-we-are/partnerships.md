@@ -1,5 +1,6 @@
 ---
 title: "Partnerships"
+hide_apply_button: true
 description: "The institutions we work with."
 figma_frame: "Partnerships and Policies"
 build_phase: 5

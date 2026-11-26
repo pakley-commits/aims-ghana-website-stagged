@@ -1,5 +1,6 @@
 ---
 title: "Message from the Centre President"
+hide_apply_button: true
 description: "A message from Dr. Prince K. Osei, Centre President of AIMS Ghana."
 figma_frame: "Message from the Centre President"
 build_phase: 5

@@ -1,5 +1,6 @@
 ---
 title: "Request for Proposal – Catering Services for AIMS Ghana"
+hide_apply_button: true
 date: 2026-07-06
 description: "The African Institute for Mathematical Sciences (AIMS) Ghana, a member of the AIMS Network, invites your Best and Final Offer (BAFO) in Ghana Cedis (GHS) for the provision of catering services to support its academic operations at its campu"
 source: "https://aims.edu.gh/career/proposal-request-catering-services-for-aims-ghana-july-2026/"

@@ -1,5 +1,6 @@
 ---
 title: "Small Grants for Climate Change based thesis, AIMS Alumni"
+hide_apply_button: true
 date: 2021-10-20
 description: "Did you do your AIMS research essay on climate-related topics? Are you working on a climate-related topic? We have good news for you. You can apply for up to USD 3,500 from AIMS Small Research Grant Program in Climate Change Sciences to par"
 source: "https://aims.edu.gh/career/small-grants-for-climate-change-based-thesis-aims-alumni/"

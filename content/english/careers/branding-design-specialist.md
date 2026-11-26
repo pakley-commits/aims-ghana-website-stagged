@@ -1,5 +1,6 @@
 ---
 title: "Branding & Design Specialist"
+hide_apply_button: true
 date: 2024-04-29
 description: "The Design and Brand Specialist will play a pivotal role in shaping and maintaining AIMS brand identity and brand coherence across all AIMS platforms. This role involves leading all design projects and ensuring consistent branding across th"
 source: "https://aims.edu.gh/career/branding-design-specialist/"

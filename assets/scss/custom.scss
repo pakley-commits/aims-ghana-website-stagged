@@ -2762,7 +2762,7 @@ $heading-scale: (
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 8.32%, rgba(0, 0, 0, 0.85) 100%);
   position: absolute;
   bottom: 0;
-  start: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 }
@@ -2915,6 +2915,7 @@ $heading-scale: (
     line-height: $lh-snug;
   }
 
+<<<<<<< HEAD
   &__excerpt {
     display: -webkit-box;
     margin: 0 0 $s-4;
@@ -2925,6 +2926,19 @@ $heading-scale: (
     color: $c-muted;
     font-size: $fs-sm;
     line-height: $lh-normal;
+=======
+&__excerpt {
+  display: -webkit-box;
+  margin: 0 0 $s-4;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  color: $c-muted;
+  font-size: $fs-sm;
+  line-height: $lh-normal;
+
+>>>>>>> a753ebd03a9111eca4d57ae1f0d564448fab6f98
   }
 
   &__more {
@@ -3772,7 +3786,11 @@ body .cookie-box.cookie-box-hide { display: none; }
   margin: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
+<<<<<<< HEAD
  line-clamp: 2;
+=======
+line-clamp: 2;
+>>>>>>> a753ebd03a9111eca4d57ae1f0d564448fab6f98
 -webkit-line-clamp: 2;
   color: $c-ink;
   font-size: $fs-h6;
@@ -3793,7 +3811,11 @@ body .cookie-box.cookie-box-hide { display: none; }
   margin: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
+<<<<<<< HEAD
   line-clamp: 2;
+=======
+ line-clamp: 2;
+>>>>>>> a753ebd03a9111eca4d57ae1f0d564448fab6f98
 -webkit-line-clamp: 2;
   color: $c-muted;
   font-size: $fs-body;
@@ -5810,7 +5832,11 @@ body .cookie-box.cookie-box-hide { display: none; }
       overflow: hidden;
       -webkit-box-orient: vertical;
      line-clamp: 2;
+<<<<<<< HEAD
 -webkit-line-clamp: 2;
+=======
+     -webkit-line-clamp: 2;
+>>>>>>> a753ebd03a9111eca4d57ae1f0d564448fab6f98
       margin-top: 2px !important;
       margin-bottom: 8px !important;
       font-size: 14px;
@@ -5820,7 +5846,11 @@ body .cookie-box.cookie-box-hide { display: none; }
       display: -webkit-box;
       overflow: hidden;
       -webkit-box-orient: vertical;
+<<<<<<< HEAD
      line-clamp: 2;
+=======
+      line-clamp: 2;
+>>>>>>> a753ebd03a9111eca4d57ae1f0d564448fab6f98
 -webkit-line-clamp: 2;
       flex: initial;
       margin-bottom: 10px;
