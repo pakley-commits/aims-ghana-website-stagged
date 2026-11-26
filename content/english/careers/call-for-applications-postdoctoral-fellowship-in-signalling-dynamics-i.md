@@ -1,5 +1,6 @@
 ---
 title: "Postdoctoral Fellowships in Signalling Dynamics in Cells and Tissues"
+hide_apply_button: true
 date: 2025-11-10
 description: "DAAD-funded fellowships at the AIMS Ghana Research Centre in Accra with Prof. Nick Monk and Prof. Kevin Thurley of Bonn, modelling cell and tissue dynamics in development and immunology."
 source: "https://aims.edu.gh/career/call-for-applications-postdoctoral-fellowship-in-signalling-dynamics-in-cells-and-tissues/"

@@ -1,5 +1,6 @@
 ---
 title: "Governance"
+hide_apply_button: true
 subtitle: ""
 description: "The AIMS Ghana Board of Trustees provides strategic guidance and oversight for the Institute."
 figma_frame: "Governance"

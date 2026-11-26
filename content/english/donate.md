@@ -1,5 +1,6 @@
 ---
 title: "Donate"
+hide_apply_button: true
 description: "Help train the next generation of African scientists, innovators and problem-solvers."
 layout: "stub"
 draft: false

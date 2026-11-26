@@ -1,5 +1,6 @@
 ---
 title: "Our Centres"
+hide_apply_button: true
 description: "The AIMS network of centres across Africa."
 build_phase: 5
 build_status: "built"

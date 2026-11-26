@@ -1,5 +1,6 @@
 ---
 title: "Tutors"
+hide_apply_button: true
 description: "The tutors supporting our students."
 figma_frame: "Tutors"
 build_phase: 3

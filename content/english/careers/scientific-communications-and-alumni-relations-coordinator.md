@@ -1,5 +1,6 @@
 ---
 title: "Scientific Communications and Alumni Relations Coordinator"
+hide_apply_button: true
 date: 2024-04-29
 description: "Based at AIMS Ghana, you will lead scientific communications across the AIMS Network, turning research into accessible stories, and build the alumni programme that keeps graduates connected."
 source: "https://aims.edu.gh/career/scientific-communications-and-alumni-relations-coordinator/"

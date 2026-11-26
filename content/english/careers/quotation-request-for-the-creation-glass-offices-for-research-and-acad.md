@@ -1,5 +1,6 @@
 ---
 title: "Quotation Request for the Creation Glass Offices for Research and Academic Department"
+hide_apply_button: true
 date: 2021-11-10
 description: "The African Institute for Mathematical Sciences in Ghana kindly request your best firm offer for the for the following activities:Creation Glass Offices for Research and Academic Department: 3 full Offices (Research Chairs), 3 Shared Office"
 source: "https://aims.edu.gh/career/quotationrequest-for-the-creation-glass-offices-for-research-and-academic-department/"

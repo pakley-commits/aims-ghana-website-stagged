@@ -1,5 +1,6 @@
 ---
 title: "Kontaktiere uns"
+hide_apply_button: true
 subtitle: ""
 # meta description
 description: "This is meta description"

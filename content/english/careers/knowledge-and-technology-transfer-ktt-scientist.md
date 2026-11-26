@@ -1,5 +1,6 @@
 ---
 title: "Knowledge and Technology Transfer (KTT) Scientist"
+hide_apply_button: true
 date: 2024-09-17
 description: "AIMS is looking for a Senior Scientist to lead the technical aspects of the Knowledge and Technology Transfer (KTT) project. As a KTT Scientist, your job area will involve entrepreneurship education, liaising with industry, bridging the gap"
 source: "https://aims.edu.gh/career/knowledge-and-technology-transfer-ktt-scientist/"

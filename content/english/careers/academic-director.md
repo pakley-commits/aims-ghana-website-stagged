@@ -1,5 +1,6 @@
 ---
 title: "Academic Director"
+hide_apply_button: true
 date: 2025-11-03
 description: "The African Institute for Mathematical Sciences (AIMS) is a pioneering institution transforming STEM education and research in Africa. Founded in 2003, AIMS has grown into the continent’s largest network of centres of excellence for trainin"
 source: "https://aims.edu.gh/career/academic-director-aims-ghana/"

@@ -1,5 +1,6 @@
 ---
 title: "Researchers"
+hide_apply_button: true
 description: "The researchers working at AIMS Ghana."
 figma_frame: ""
 build_phase: 6

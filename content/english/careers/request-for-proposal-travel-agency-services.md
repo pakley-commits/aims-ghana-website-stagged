@@ -1,5 +1,6 @@
 ---
 title: "Request for Proposal – Travel Agency Services"
+hide_apply_button: true
 date: 2023-08-16
 description: "AIMS Ghana would like to request your Best and Final Offer (BAFO) in GHANA CEDIS (GHS) for the services of a travel agency that will offer the best conditions to all our travellers affiliated with the Centre: A. Type:We are looking for a co"
 source: "https://aims.edu.gh/career/request-for-proposal-travel-agency-services/"

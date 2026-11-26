@@ -1,5 +1,6 @@
 ---
 title: "Lecturers"
+hide_apply_button: true
 description: "Visiting and resident lecturers."
 figma_frame: "Lecturers"
 build_phase: 3

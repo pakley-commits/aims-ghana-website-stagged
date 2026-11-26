@@ -2762,7 +2762,7 @@ $heading-scale: (
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 8.32%, rgba(0, 0, 0, 0.85) 100%);
   position: absolute;
   bottom: 0;
-  start: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 }
@@ -2915,15 +2915,17 @@ $heading-scale: (
     line-height: $lh-snug;
   }
 
-  &__excerpt {
-    display: -webkit-box;
-    margin: 0 0 $s-4;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
-    color: $c-muted;
-    font-size: $fs-sm;
-    line-height: $lh-normal;
+&__excerpt {
+  display: -webkit-box;
+  margin: 0 0 $s-4;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  color: $c-muted;
+  font-size: $fs-sm;
+  line-height: $lh-normal;
+
   }
 
   &__more {
@@ -3570,7 +3572,8 @@ $heading-scale: (
   margin: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  line-clamp: 2;
+-webkit-line-clamp: 2;
   color: $c-muted;
   overflow-wrap: anywhere;
 }
@@ -3770,7 +3773,8 @@ body .cookie-box.cookie-box-hide { display: none; }
   margin: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+line-clamp: 2;
+-webkit-line-clamp: 2;
   color: $c-ink;
   font-size: $fs-h6;
   font-weight: $fw-semibold;
@@ -3790,7 +3794,8 @@ body .cookie-box.cookie-box-hide { display: none; }
   margin: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+ line-clamp: 2;
+-webkit-line-clamp: 2;
   color: $c-muted;
   font-size: $fs-body;
   line-height: $lh-normal;
@@ -5805,7 +5810,8 @@ body .cookie-box.cookie-box-hide { display: none; }
       display: -webkit-box;
       overflow: hidden;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
+     line-clamp: 2;
+     -webkit-line-clamp: 2;
       margin-top: 2px !important;
       margin-bottom: 8px !important;
       font-size: 14px;
@@ -5815,7 +5821,8 @@ body .cookie-box.cookie-box-hide { display: none; }
       display: -webkit-box;
       overflow: hidden;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
+      line-clamp: 2;
+-webkit-line-clamp: 2;
       flex: initial;
       margin-bottom: 10px;
       font-size: 12px;
