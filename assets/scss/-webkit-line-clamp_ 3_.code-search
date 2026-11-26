@@ -1,0 +1,26 @@
+# Query:  -webkit-line-clamp: 3;
+# ContextLines: 1
+
+4 results - 1 file
+
+assets\scss\custom.scss:
+  2922      -webkit-box-orient: vertical;
+  2923:    line-clamp: 2;
+-webkit-line-clamp: 2;
+  2924      color: $c-muted;
+
+  3572    -webkit-box-orient: vertical;
+  3573:   line-clamp: 2;
+-webkit-line-clamp: 2;
+  3574    color: $c-muted;
+
+  5807        -webkit-box-orient: vertical;
+  5808:       line-clamp: 2;
+-webkit-line-clamp: 2;
+  5809        margin-top: 2px !important;
+
+  5817        -webkit-box-orient: vertical;
+  5818:       line-clamp: 2;
+-webkit-line-clamp: 2;
+
+  5819        flex: initial;

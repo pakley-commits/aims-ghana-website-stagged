@@ -2920,7 +2920,8 @@ $heading-scale: (
     margin: 0 0 $s-4;
     overflow: hidden;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    line-clamp: 2;
+-webkit-line-clamp: 2;
     color: $c-muted;
     font-size: $fs-sm;
     line-height: $lh-normal;
@@ -3570,7 +3571,8 @@ $heading-scale: (
   margin: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  line-clamp: 2;
+-webkit-line-clamp: 2;
   color: $c-muted;
   overflow-wrap: anywhere;
 }
@@ -3770,7 +3772,8 @@ body .cookie-box.cookie-box-hide { display: none; }
   margin: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+ line-clamp: 2;
+-webkit-line-clamp: 2;
   color: $c-ink;
   font-size: $fs-h6;
   font-weight: $fw-semibold;
@@ -3790,7 +3793,8 @@ body .cookie-box.cookie-box-hide { display: none; }
   margin: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
+  line-clamp: 2;
+-webkit-line-clamp: 2;
   color: $c-muted;
   font-size: $fs-body;
   line-height: $lh-normal;
@@ -5805,7 +5809,8 @@ body .cookie-box.cookie-box-hide { display: none; }
       display: -webkit-box;
       overflow: hidden;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
+     line-clamp: 2;
+-webkit-line-clamp: 2;
       margin-top: 2px !important;
       margin-bottom: 8px !important;
       font-size: 14px;
@@ -5815,7 +5820,8 @@ body .cookie-box.cookie-box-hide { display: none; }
       display: -webkit-box;
       overflow: hidden;
       -webkit-box-orient: vertical;
-      -webkit-line-clamp: 3;
+     line-clamp: 2;
+-webkit-line-clamp: 2;
       flex: initial;
       margin-bottom: 10px;
       font-size: 12px;
