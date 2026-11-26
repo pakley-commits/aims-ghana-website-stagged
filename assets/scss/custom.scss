@@ -2915,18 +2915,6 @@ $heading-scale: (
     line-height: $lh-snug;
   }
 
-<<<<<<< HEAD
-  &__excerpt {
-    display: -webkit-box;
-    margin: 0 0 $s-4;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    line-clamp: 2;
--webkit-line-clamp: 2;
-    color: $c-muted;
-    font-size: $fs-sm;
-    line-height: $lh-normal;
-=======
 &__excerpt {
   display: -webkit-box;
   margin: 0 0 $s-4;
@@ -2938,7 +2926,6 @@ $heading-scale: (
   font-size: $fs-sm;
   line-height: $lh-normal;
 
->>>>>>> a753ebd03a9111eca4d57ae1f0d564448fab6f98
   }
 
   &__more {
@@ -3786,11 +3773,7 @@ body .cookie-box.cookie-box-hide { display: none; }
   margin: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
-<<<<<<< HEAD
- line-clamp: 2;
-=======
 line-clamp: 2;
->>>>>>> a753ebd03a9111eca4d57ae1f0d564448fab6f98
 -webkit-line-clamp: 2;
   color: $c-ink;
   font-size: $fs-h6;
@@ -3811,11 +3794,7 @@ line-clamp: 2;
   margin: 0;
   overflow: hidden;
   -webkit-box-orient: vertical;
-<<<<<<< HEAD
-  line-clamp: 2;
-=======
  line-clamp: 2;
->>>>>>> a753ebd03a9111eca4d57ae1f0d564448fab6f98
 -webkit-line-clamp: 2;
   color: $c-muted;
   font-size: $fs-body;
@@ -5832,11 +5811,7 @@ line-clamp: 2;
       overflow: hidden;
       -webkit-box-orient: vertical;
      line-clamp: 2;
-<<<<<<< HEAD
--webkit-line-clamp: 2;
-=======
      -webkit-line-clamp: 2;
->>>>>>> a753ebd03a9111eca4d57ae1f0d564448fab6f98
       margin-top: 2px !important;
       margin-bottom: 8px !important;
       font-size: 14px;
@@ -5846,11 +5821,7 @@ line-clamp: 2;
       display: -webkit-box;
       overflow: hidden;
       -webkit-box-orient: vertical;
-<<<<<<< HEAD
-     line-clamp: 2;
-=======
       line-clamp: 2;
->>>>>>> a753ebd03a9111eca4d57ae1f0d564448fab6f98
 -webkit-line-clamp: 2;
       flex: initial;
       margin-bottom: 10px;
