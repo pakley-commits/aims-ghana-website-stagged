@@ -10,6 +10,7 @@ draft: false
 layout: "admin-staff"
 
 hero:
+  eyebrow: "Our People"
   title: "Administrative Staff"
   content: "AIMS Ghana opened in 2012 as the West African hub of the AIMS Network. With backing from the Government of Ghana, we became a UNESCO Category II Centre of Excellence, offering fully funded postgraduate programmes that combine rigorous coursework with independent research."
 

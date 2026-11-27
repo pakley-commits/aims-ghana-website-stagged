@@ -3,7 +3,11 @@
 {{ with .Params.hero }}
 <section class="admin-staff-hero">
   <div class="admin-staff-container admin-staff-hero__inner">
-    <h1>{{ .title | markdownify }}</h1>
+    <div class="admin-staff-hero__heading">
+      {{ with .eyebrow }}<span class="admin-staff-hero__eyebrow">{{ . }}</span>{{ end }}
+      <h1>{{ .title | markdownify }}</h1>
+      <span class="admin-staff-hero__accent" aria-hidden="true"></span>
+    </div>
     <p>{{ .content | markdownify }}</p>
   </div>
 </section>
