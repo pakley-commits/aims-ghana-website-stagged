@@ -27,6 +27,7 @@
 {{ $variant := .variant | default "overlay" }}
 {{ $name := .name }}
 {{ $role := .role }}
+{{ $link := .link }}
 
 {{/* Resolve the image whichever way the path was written. */}}
 {{ $img := "" }}
@@ -42,16 +43,18 @@
   {{/* The media box is omitted entirely when there is no portrait, rather
        than left empty: the Academic Council has names but no photographs, and
        an empty div would still reserve its height. */}}
-  {{ with $img }}
+    {{ with $img }}
   <div class="admin-staff-card__media">
     {{ $photo := . | fingerprint "sha256" }}
+    {{ if $link }}<a href="{{ $link }}" aria-label="{{ $name }}">{{ end }}
     <img src="{{ $photo.RelPermalink }}" alt="{{ $name }}" class="admin-staff-card__image" loading="lazy">
+    {{ if $link }}</a>{{ end }}
   </div>
   {{ end }}
 
   <div class="admin-staff-card__body">
     <div>
-      <h2>{{ $name | markdownify }}</h2>
+            <h2>{{ if $link }}<a href="{{ $link }}">{{ end }}{{ $name | markdownify }}{{ if $link }}</a>{{ end }}</h2>
       {{ with $role }}<p>{{ . | markdownify }}</p>{{ end }}
       {{ with .meta }}<p class="admin-staff-card__meta">{{ . | markdownify }}</p>{{ end }}
     </div>

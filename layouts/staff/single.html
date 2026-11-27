@@ -1,0 +1,32 @@
+{{ define "main" }}
+
+{{/* Find the photo the same way the staff cards do */}}
+{{ $img := "" }}
+{{ with .Params.image }}
+  {{ $img = resources.Get . }}
+  {{ if not $img }}
+    {{ $img = resources.Get (printf "images/%s" .) }}
+  {{ end }}
+{{ end }}
+
+<section class="section">
+  <div class="container">
+    <div class="row">
+
+      {{ with $img }}
+      <div class="col-md-4 mb-4">
+        <img src="{{ (. | fingerprint "sha256").RelPermalink }}" alt="{{ $.Title }}" class="img-fluid rounded">
+      </div>
+      {{ end }}
+
+      <div class="{{ if $img }}col-md-8{{ else }}col-12{{ end }}">
+        <h1>{{ .Title }}</h1>
+        <p class="lead">{{ .Params.role }}</p>
+        {{ .Content }}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{{ end }}

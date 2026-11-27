@@ -14,8 +14,9 @@
   <div class="admin-staff-container">
     <div class="admin-staff-grid">
       {{ range . }}
-      {{ partial "card-person.html" (dict "variant" "stacked" "name" .name "role" .role "image" .image "socials" $.Params.staff_social) }}
-      {{ end }}
+{{ $slug := path.BaseName .image }}
+{{ partial "card-person.html" (dict "variant" "stacked" "name" .name "role" .role "image" .image "socials" $.Params.staff_social "link" (printf "/staff/%s/" $slug | relLangURL)) }}
+{{ end }}
     </div>
   </div>
 </section>
