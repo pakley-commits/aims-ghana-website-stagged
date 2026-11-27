@@ -2894,7 +2894,7 @@ $heading-scale: (
 // starting at the same top line.
 .home-intro__statement {
   margin-top: 0;
-  max-width: 22ch;
+  max-width: none;
   line-height: $lh-snug;
 }
 
